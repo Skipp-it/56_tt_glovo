@@ -3,7 +3,6 @@ package com.glovo.ttglovo.favourite_meal.dao;
 import com.glovo.ttglovo.favourite_meal.model.Product;
 import org.springframework.stereotype.Repository;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
