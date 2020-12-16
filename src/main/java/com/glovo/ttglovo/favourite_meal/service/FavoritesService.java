@@ -5,7 +5,6 @@ import com.glovo.ttglovo.favourite_meal.model.Product;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import java.sql.SQLException;
 import java.util.List;
 
 @Service
@@ -17,11 +16,11 @@ public class FavoritesService {
         this.favoritesDAO = favoritesDAO;
     }
 
-    public void addNewProduct(Product product) throws SQLException {
+    public void addNewProduct(Product product) {
         favoritesDAO.add(product);
     }
 
-    public List<Product> getAllProducts() throws SQLException {
+    public List<Product> getAllProducts() {
         return favoritesDAO.getAll();
     }
 

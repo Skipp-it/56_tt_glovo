@@ -8,36 +8,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository("memory_repo")
-public class FavoritesDaoMem implements FavoritesDAO{
+public class FavoritesDaoMem implements FavoritesDAO {
 
-    private static List<Product> favoritesList = new ArrayList<>();
+    private static final List<Product> favoritesList = new ArrayList<>();
 
 
     @Override
-    public void add(Product product) throws SQLException {
+    public void add(Product product) {
         product.setId(favoritesList.size() + 1);
         favoritesList.add(product);
     }
 
     @Override
-    public String remove(int id) throws SQLException {
+    public String remove(int id) {
         favoritesList.stream().filter(p -> p.getId() != id);
         return "product removed";
     }
 
     @Override
-    public void update(Product product) throws SQLException {
+    public void update(Product product) {
 //        favoritesList.get(product.getId());
     }
 
 
     @Override
-    public Product get(int id) throws SQLException {
-        return favoritesList.stream().filter(t -> t.getId() ==  id).findFirst().orElse(null);
+    public Product get(int id) {
+        return favoritesList.stream().filter(t -> t.getId() == id).findFirst().orElse(null);
     }
 
     @Override
-    public List<Product> getAll() throws SQLException {
+    public List<Product> getAll() {
         return favoritesList;
     }
 }

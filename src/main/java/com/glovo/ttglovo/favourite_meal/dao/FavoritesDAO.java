@@ -8,14 +8,14 @@ import java.util.List;
 
 public interface FavoritesDAO {
 
-    void add(Product product) throws SQLException;
+    void add(Product product);
 
-    void update(Product product) throws SQLException;
+    void update(Product product);
 
-    String remove(int id) throws SQLException;
+    String remove(int id);
 
-    Product get(int id) throws SQLException;
+    Product get(int id);
 
-    List<Product> getAll() throws SQLException;
+    List<Product> getAll();
 }
 
