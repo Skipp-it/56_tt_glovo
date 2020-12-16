@@ -20,8 +20,10 @@ public class FavoritesService {
         favoritesDAO.add(product);
     }
 
-    public List<Product> getAllProducts() {
-        return favoritesDAO.getAll();
-    }
+    public void removeProduct(int id){ favoritesDAO.remove(id); }
+
+    public Product getProductById (int id){return favoritesDAO.get(id);};
+
+    public List<Product> getAllProducts() { return favoritesDAO.getAll();}
 
 }
