@@ -3,7 +3,6 @@ package com.glovo.ttglovo.favourite_meal.dao;
 import com.glovo.ttglovo.favourite_meal.model.Product;
 import org.springframework.stereotype.Repository;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,24 +11,11 @@ public class FavoritesDaoMem implements FavoritesDAO {
 
     private static final List<Product> favoritesList = new ArrayList<>();
 
+    @Override
+    public void add(Product product) { favoritesList.add(product); }
 
     @Override
-    public void add(Product product) {
-        product.setId(favoritesList.size() + 1);
-        favoritesList.add(product);
-    }
-
-    @Override
-    public String remove(int id) {
-        favoritesList.stream().filter(p -> p.getId() != id);
-        return "product removed";
-    }
-
-    @Override
-    public void update(Product product) {
-//        favoritesList.get(product.getId());
-    }
-
+    public void remove(int id) { favoritesList.removeIf(product -> product.getId() == id); }
 
     @Override
     public Product get(int id) {
@@ -41,3 +27,4 @@ public class FavoritesDaoMem implements FavoritesDAO {
         return favoritesList;
     }
 }
+
