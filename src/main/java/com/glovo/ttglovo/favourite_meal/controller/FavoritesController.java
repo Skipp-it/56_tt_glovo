@@ -4,6 +4,7 @@ import com.glovo.ttglovo.favourite_meal.model.Product;
 import com.glovo.ttglovo.favourite_meal.service.FavoritesService;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 
@@ -11,18 +12,14 @@ import java.util.List;
 @RequestMapping("/favorites")
 public class FavoritesController {
 
-    private FavoritesService favoritesService;
+    private final FavoritesService favoritesService;
 
     public FavoritesController(FavoritesService favoritesService) {
         this.favoritesService = favoritesService;
     }
 
-
-    @GetMapping(path = "/{name}/{id}")
-    public void addNewFavoriteProduct(@PathVariable("name") String name, @PathVariable("id") int id) {
-        Product product = new Product(name, id);
-        favoritesService.addNewProduct(product);
-    }
+    @PostMapping()
+    public void addNewFavoriteProduct(@RequestBody @NotNull Product product) { favoritesService.addNewProduct(product); }
 
     @DeleteMapping("/{id}")
     public void deleteFromFavorites(@PathVariable("id") int id){ favoritesService.removeProduct(id); }
