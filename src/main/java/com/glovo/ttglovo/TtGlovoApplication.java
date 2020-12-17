@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 
-@SpringBootApplication(scanBasePackages = {"com.glovo.ttglovo.favourite_meal"})
+@SpringBootApplication()
 public class TtGlovoApplication {
 
     public static void main(String[] args) {
