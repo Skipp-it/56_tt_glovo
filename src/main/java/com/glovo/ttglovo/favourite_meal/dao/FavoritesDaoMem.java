@@ -26,5 +26,7 @@ public class FavoritesDaoMem implements FavoritesDAO {
     public List<Product> getAll() {
         return favoritesList;
     }
+
+
 }
 

@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/favorites")
+@CrossOrigin(origins = "http://localhost:3000")
 public class FavoritesController {
 
     private final FavoritesService favoritesService;
@@ -19,7 +20,10 @@ public class FavoritesController {
     }
 
     @PostMapping()
-    public void addNewFavoriteProduct(@RequestBody @NotNull Product product) { favoritesService.addNewProduct(product); }
+    public void addNewFavoriteProduct(@RequestBody @NotNull Product product) {
+        System.out.println("a intrat produsu");
+        System.out.println(product);
+        favoritesService.addNewProduct(product); }
 
     @DeleteMapping("/{id}")
     public void deleteFromFavorites(@PathVariable("id") int id){ favoritesService.removeProduct(id); }
@@ -29,6 +33,7 @@ public class FavoritesController {
 
     @GetMapping()
     public List<Product> getFavouriteProducts(){
+        System.out.println("au iesit produsele");
         return favoritesService.getAllProducts();
     }
 
