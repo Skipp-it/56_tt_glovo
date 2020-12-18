@@ -21,8 +21,6 @@ public class FavoritesController {
 
     @PostMapping()
     public void addNewFavoriteProduct(@RequestBody @NotNull Product product) {
-        System.out.println("a intrat produsu");
-        System.out.println(product);
         favoritesService.addNewProduct(product); }
 
     @DeleteMapping("/{id}")
@@ -33,7 +31,6 @@ public class FavoritesController {
 
     @GetMapping()
     public List<Product> getFavouriteProducts(){
-        System.out.println("au iesit produsele");
         return favoritesService.getAllProducts();
     }
 
