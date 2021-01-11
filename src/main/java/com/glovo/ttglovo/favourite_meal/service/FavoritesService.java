@@ -1,6 +1,6 @@
 package com.glovo.ttglovo.favourite_meal.service;
 
-import com.glovo.ttglovo.favourite_meal.dao.FavoritesDAO;
+import com.glovo.ttglovo.favourite_meal.repository.FavoritesDAO;
 import com.glovo.ttglovo.favourite_meal.model.Product;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
