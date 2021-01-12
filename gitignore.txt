@@ -30,6 +30,7 @@ tomcat
 *.iws
 *.ipr
 .idea/
+application.properties
 
 
 # eclipse project file

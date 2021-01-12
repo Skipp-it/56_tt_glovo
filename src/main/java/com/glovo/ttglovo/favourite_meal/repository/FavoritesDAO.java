@@ -1,4 +1,5 @@
-package com.glovo.ttglovo.favourite_meal.dao;
+
+package com.glovo.ttglovo.favourite_meal.repository;
 
 import com.glovo.ttglovo.favourite_meal.model.Product;
 
@@ -15,4 +16,3 @@ public interface FavoritesDAO {
 
     List<Product> getAll();
 }
-
