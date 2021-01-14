@@ -1,11 +1,8 @@
-package com.glovo.ttglovo.favourite_meal.repository;
+package com.glovo.ttglovo.prices.repository;
 
-import com.glovo.ttglovo.favourite_meal.model.MealPrices;
-import org.springframework.data.jpa.repository.Query;
+import com.glovo.ttglovo.prices.model.MealPrices;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 
 @Repository

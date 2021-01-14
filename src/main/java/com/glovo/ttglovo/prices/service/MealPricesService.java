@@ -1,7 +1,7 @@
-package com.glovo.ttglovo.favourite_meal.service;
+package com.glovo.ttglovo.prices.service;
 
-import com.glovo.ttglovo.favourite_meal.repository.MealPricesRepository;
-import com.glovo.ttglovo.favourite_meal.model.MealPrices;
+import com.glovo.ttglovo.prices.repository.MealPricesRepository;
+import com.glovo.ttglovo.prices.model.MealPrices;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

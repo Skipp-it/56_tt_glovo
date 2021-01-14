@@ -1,8 +1,8 @@
-package com.glovo.ttglovo.favourite_meal.controller;
+package com.glovo.ttglovo.prices.controller;
 
 
-import com.glovo.ttglovo.favourite_meal.model.MealPrices;
-import com.glovo.ttglovo.favourite_meal.service.MealPricesService;
+import com.glovo.ttglovo.prices.service.MealPricesService;
+import com.glovo.ttglovo.prices.model.MealPrices;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
