@@ -42,7 +42,7 @@ public class User {
     @Column(
             name = "email",
             nullable = false,
-            columnDefinition = "EMAIL"
+            columnDefinition = "TEXT"
     )
     private String email;
 
