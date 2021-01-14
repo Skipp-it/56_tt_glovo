@@ -24,6 +24,9 @@ public class LoginService {
     }
 
     public Optional<User> getUsernameByEmailAndPassword(User user) {
-        return userRepository.findByEmailAndPassword(user.getEmail(), user.getPassword());
+        try{
+            return userRepository.findByEmailAndPassword(user.getEmail(), user.getPassword());
+        } catch (Exception e){ }
+        return null;
     }
 }
