@@ -1,29 +1,38 @@
 package com.glovo.ttglovo.favourite_meal.service;
 
-import com.glovo.ttglovo.favourite_meal.repository.FavoritesDAO;
-import com.glovo.ttglovo.favourite_meal.model.Product;
-import org.springframework.beans.factory.annotation.Qualifier;
+
+import com.glovo.ttglovo.favourite_meal.model.FavoriteMeal;
+import com.glovo.ttglovo.favourite_meal.repository.FavoritesRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class FavoritesService {
 
-    private final FavoritesDAO favoritesDAO;
 
-    public FavoritesService(@Qualifier("memory_repo") FavoritesDAO favoritesDAO) {
-        this.favoritesDAO = favoritesDAO;
+    private final FavoritesRepository favoritesRepository;
+    private List favoriteMealList=new ArrayList();
+
+    @Autowired
+    public FavoritesService(FavoritesRepository favoritesRepository) {
+        this.favoritesRepository = favoritesRepository;
     }
 
-    public void addNewProduct(Product product) {
-        favoritesDAO.add(product);
+
+    public void saveFavorites(FavoriteMeal favoriteMeal) {
+        if(!favoritesRepository.existsById(favoriteMeal.getId()))
+        {favoritesRepository.save(favoriteMeal);}
+        else System.out.println("This meal is added in favorites");
+    }
+    public List<FavoriteMeal> getAllFavoritesMeal(){
+        return favoritesRepository.findAll();
+
     }
 
-    public void removeProduct(int id){ favoritesDAO.remove(id); }
-
-    public Product getProductById (int id){return favoritesDAO.get(id);};
-
-    public List<Product> getAllProducts() { return favoritesDAO.getAll();}
-
+    public void removeProduct(Long id) {
+        favoritesRepository.deleteById(id);
+    }
 }
