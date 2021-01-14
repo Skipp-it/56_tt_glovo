@@ -1,0 +1,18 @@
+Index: src/main/java/com/glovo/ttglovo/favourite_meal/model/Product.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.glovo.ttglovo.favourite_meal.model;\r\n\r\nimport lombok.Data;\r\nimport org.springframework.stereotype.Component;\r\n\r\n@Data\r\n@Component\r\npublic class Product {\r\n\r\n    private String name;\r\n    private int id;\r\n    private String thumbnail;\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/glovo/ttglovo/favourite_meal/model/Product.java	(revision aa8d8ec79eba6d30185b0acc13231839e60e249d)
++++ src/main/java/com/glovo/ttglovo/favourite_meal/model/Product.java	(date 1608248088699)
+@@ -10,5 +10,8 @@
+     private String name;
+     private int id;
+     private String thumbnail;
++    private String price;
++
++    
+ 
+ }
