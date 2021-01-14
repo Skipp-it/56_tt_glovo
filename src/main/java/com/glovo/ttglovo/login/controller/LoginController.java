@@ -17,14 +17,9 @@ public class LoginController {
     }
 
     @PostMapping()
-    public void getCredentialForLogin(@RequestBody User user) {
-        var loggedUser = loginService.getUsernameByEmailAndPassword(user);
-        System.out.println("-----");
-        System.out.println(loggedUser.get().getUsername());
-
-//       return loggedUser.get().getUsername();
+    public String getCredentialForLogin(@RequestBody User user) {
+        return loginService.getUsernameByEmailAndPassword(user).get().getUsername();
     }
-
 }
 
 
