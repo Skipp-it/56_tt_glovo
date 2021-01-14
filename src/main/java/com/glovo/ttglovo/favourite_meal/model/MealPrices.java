@@ -25,7 +25,6 @@ public class MealPrices {
     private Integer price;
 
 
-
     public MealPrices(Long id, Integer price) {
         this.id = id;
         this.price = price;

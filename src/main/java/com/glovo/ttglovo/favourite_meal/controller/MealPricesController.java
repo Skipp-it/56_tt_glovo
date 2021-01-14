@@ -26,7 +26,7 @@ public class MealPricesController {
     }
 
     @GetMapping()
-    public List<MealPrices> getAllMealPrices(){
+    public List<MealPrices> getAllMealPrices() {
         return mealPricesService.getAllMealPrices();
     }
 

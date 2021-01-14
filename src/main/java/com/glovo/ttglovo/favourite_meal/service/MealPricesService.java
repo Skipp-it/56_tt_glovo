@@ -24,15 +24,15 @@ public class MealPricesService {
         this.mealPricesRepository = mealPricesRepository;
     }
 
-    public void addPrice(MealPrices mealPrices){
+    public void addPrice(MealPrices mealPrices) {
         mealPricesRepository.save(mealPrices);
     }
 
-    public Optional<MealPrices> getPrice(Long id){
-      return mealPricesRepository.findById(id);
+    public Optional<MealPrices> getPrice(Long id) {
+        return mealPricesRepository.findById(id);
     }
 
-    public List<MealPrices> getAllMealPrices(){
+    public List<MealPrices> getAllMealPrices() {
         return (List<MealPrices>) mealPricesRepository.findAll();
     }
 
