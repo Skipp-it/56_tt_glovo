@@ -1,4 +1,4 @@
-package com.glovo.ttglovo.favourite_meal.model;
+package com.glovo.ttglovo.prices.model;
 
 
 import lombok.Getter;

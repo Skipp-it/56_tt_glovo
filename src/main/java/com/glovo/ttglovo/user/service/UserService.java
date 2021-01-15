@@ -1,7 +1,7 @@
-package com.glovo.ttglovo.favourite_meal.service;
+package com.glovo.ttglovo.user.service;
 
-import com.glovo.ttglovo.favourite_meal.model.User;
-import com.glovo.ttglovo.favourite_meal.repository.UserRegistrationRepository;
+import com.glovo.ttglovo.user.repository.UserRepository;
+import com.glovo.ttglovo.user.model.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,35 +16,35 @@ import java.util.UUID;
 @Getter
 @Setter
 @NoArgsConstructor
-public class UserRegisterService {
+public class UserService {
 
-    UserRegistrationRepository userRegistrationRepository;
+    UserRepository userRepository;
 
     @Autowired
-    public UserRegisterService(UserRegistrationRepository userRegistrationRepository) {
-        this.userRegistrationRepository = userRegistrationRepository;
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     public boolean addNewUser(User user) {
         if ((user.getId()==null) && (getUserByEmail(user.getEmail()).isEmpty())) {
             user.setId(UUID.randomUUID());
-            userRegistrationRepository.save(user);
+            userRepository.save(user);
             return true;
         }
         return false;
     }
 
     public Optional<User> getUserById(UUID id) {
-        return userRegistrationRepository.findById(id);
+        return userRepository.findById(id);
     }
 
     public Optional<User> getUserByEmail(String email) {
-        return userRegistrationRepository.findByEmail(email);
+        return userRepository.findByEmail(email);
     }
 
 
     //TODO de sters !!!!
     public List<User> getAllUsers() {
-        return (List<User>) userRegistrationRepository.findAll();
+        return (List<User>) userRepository.findAll();
     }
 }

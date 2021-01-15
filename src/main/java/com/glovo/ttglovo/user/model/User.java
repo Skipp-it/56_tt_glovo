@@ -1,4 +1,4 @@
-package com.glovo.ttglovo.favourite_meal.model;
+package com.glovo.ttglovo.user.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -66,6 +66,11 @@ public class User {
         this.email = email;
         this.password = password;
         this.username = username;
+    }
+
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
     }
 
     @Override

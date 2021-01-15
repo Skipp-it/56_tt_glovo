@@ -22,10 +22,13 @@ tomcat
 *.sar
 *.class
 
-# Maven 
+# Maven
 */target/**
+
 target/
-# IntelliJ project files 
+
+# IntelliJ project files
+
 *.iml
 *.iws
 *.ipr
