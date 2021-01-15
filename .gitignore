@@ -24,7 +24,7 @@ tomcat
 
 # Maven 
 */target/**
-
+target/
 # IntelliJ project files 
 *.iml
 *.iws
