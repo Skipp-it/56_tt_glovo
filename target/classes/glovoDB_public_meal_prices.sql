@@ -1,3 +1,6 @@
+
+DROP TABLE IF EXISTS meal_prices;
+
 create table meal_prices
 (
     id    bigint  not null
@@ -5,6 +8,19 @@ create table meal_prices
             primary key,
     price integer not null
 );
+
+
+DROP TABLE IF EXISTS user_table;
+
+create table user_table
+(
+    id    uuid  not null
+        primary key,
+    first_name text not null,
+    last_name text not null,
+    email text not null,
+    password text not null,
+    username text not null
 
 alter table meal_prices
     owner to postgres;
@@ -267,3 +283,19 @@ INSERT INTO public.meal_prices (id, price) VALUES (52967, 69);
 INSERT INTO public.meal_prices (id, price) VALUES (52962, 4);
 INSERT INTO public.meal_prices (id, price) VALUES (52964, 70);
 INSERT INTO public.meal_prices (id, price) VALUES (52968, 15);
+
+DROP TABLE IF EXISTS user_table;
+
+create table user_table
+(
+    id    uuid  not null
+        primary key,
+    first_name text not null,
+    last_name text not null,
+    email text not null,
+    password text not null,
+    username text not null
+);
+
+alter table meal_prices
+    owner to postgres;
