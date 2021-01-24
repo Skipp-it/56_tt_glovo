@@ -22,7 +22,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
-    @Bean
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .cors().and()

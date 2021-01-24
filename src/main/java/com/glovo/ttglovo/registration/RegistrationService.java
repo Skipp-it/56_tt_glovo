@@ -37,6 +37,7 @@ public class RegistrationService {
     }
     @Transactional
     public String confirmToken(String token) {
+        System.out.println("TOKEEEEEEE");
         ConfirmationToken confirmationToken = confirmationTokenService
                 .getToken(token)
                 .orElseThrow(() ->
