@@ -1,6 +1,6 @@
 package com.glovo.ttglovo.registration.token;
 
-import com.glovo.ttglovo.appuser.AppUser;
+import com.glovo.ttglovo.user.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -41,12 +41,12 @@ public class ConfirmationToken {
     @ManyToOne
      @JoinColumn(nullable = false,
      name="app_user_id")
-    private AppUser appUser;
+    private User user;
 
-    public ConfirmationToken(String token, LocalDateTime createdAt, LocalDateTime expiresAt, AppUser appUser) {
+    public ConfirmationToken(String token, LocalDateTime createdAt, LocalDateTime expiresAt, User appUser) {
         this.token = token;
         this.createdAt = createdAt;
         this.expiresAt = expiresAt;
-        this.appUser=appUser;
+        this.user =appUser;
     }
 }

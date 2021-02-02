@@ -1,9 +1,8 @@
 package com.glovo.ttglovo.registration;
 
-import com.glovo.ttglovo.appuser.AppUser;
-import com.glovo.ttglovo.appuser.AppUserRepository;
-import com.glovo.ttglovo.appuser.AppUserRole;
-import com.glovo.ttglovo.appuser.AppUserService;
+import com.glovo.ttglovo.user.User;
+import com.glovo.ttglovo.user.UserRole;
+import com.glovo.ttglovo.user.UserService;
 import com.glovo.ttglovo.email.EmailSender;
 import com.glovo.ttglovo.registration.token.ConfirmationToken;
 import com.glovo.ttglovo.registration.token.ConfirmationTokenService;
@@ -17,7 +16,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class RegistrationService {
 
-    private AppUserService appUserService;
+    private UserService userService;
     private final EmailValidator emailValidator;
     private final ConfirmationTokenService confirmationTokenService;
     private final EmailSender emailSender;
@@ -27,9 +26,9 @@ public class RegistrationService {
         if(!isValidEmail){
             throw new IllegalStateException("Email is not valid");
         }
-       String token= appUserService.signUpUser(
-                new AppUser(request.getFirstName(),request.getLastName(),request.getUsername(),request.getEmail(),
-                        request.getPassword(), AppUserRole.USER)
+       String token= userService.signUpUser(
+                new User(request.getFirstName(),request.getLastName(),request.getUsername(),request.getEmail(),
+                        request.getPassword(), UserRole.USER)
         );
         String link="http://localhost:8080/register/confirm?token="+token;
           emailSender.send(request.getEmail(),buildEmail(request.getFirstName(),link));
@@ -54,8 +53,8 @@ public class RegistrationService {
         }
 
         confirmationTokenService.setConfirmedAt(token);
-        appUserService.enableAppUser(
-                confirmationToken.getAppUser().getEmail());
+        userService.enableAppUser(
+                confirmationToken.getUser().getEmail());
         return "confirmed";
 
     }

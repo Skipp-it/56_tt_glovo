@@ -1,4 +1,4 @@
-package com.glovo.ttglovo.appuser;
+package com.glovo.ttglovo.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -10,8 +10,8 @@ import java.util.Optional;
 
 @Repository
 @Transactional()
-public interface AppUserRepository extends JpaRepository<AppUser,Long> {
-    Optional<AppUser> findByEmail(String email);
+public interface UserRepository extends JpaRepository<User,Long> {
+    Optional<User> findByEmail(String email);
 
     @Transactional
     @Modifying

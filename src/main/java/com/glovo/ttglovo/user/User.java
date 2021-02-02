@@ -1,10 +1,6 @@
-package com.glovo.ttglovo.appuser;
+package com.glovo.ttglovo.user;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,7 +15,8 @@ import java.util.Collections;
 @NoArgsConstructor
 @Entity(name="AppUser")
 @Table(name="user_table")
-public class AppUser implements UserDetails {
+@AllArgsConstructor
+public class User implements UserDetails {
 
     @Id
     @SequenceGenerator(
@@ -75,24 +72,24 @@ public class AppUser implements UserDetails {
             columnDefinition = "TEXT"
     )
     @Enumerated(EnumType.STRING)
-    private AppUserRole appUserRole;
+    private UserRole userRole;
     private Boolean locked=false;
     private Boolean enabled=false;
 
 
-    public AppUser(String firstName, String lastName, String username, String email, String password, AppUserRole appUserRole) {
+    public User(String firstName, String lastName, String username, String email, String password, UserRole userRole) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.email = email;
         this.password = password;
-        this.appUserRole = appUserRole;
+        this.userRole = userRole;
 
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        SimpleGrantedAuthority authority= new SimpleGrantedAuthority(appUserRole.name());
+        SimpleGrantedAuthority authority= new SimpleGrantedAuthority(userRole.name());
         return Collections.singletonList(authority);
     }
 
@@ -125,4 +122,6 @@ public class AppUser implements UserDetails {
     public boolean isEnabled() {
         return enabled;
     }
+
+
 }
