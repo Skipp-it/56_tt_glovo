@@ -1,7 +1,7 @@
 package com.glovo.ttglovo.login.service;
 
-import com.glovo.ttglovo.user.model.User;
-import com.glovo.ttglovo.user.repository.UserRepository;
+import com.glovo.ttglovo.user.User;
+import com.glovo.ttglovo.user.UserRepository;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

@@ -1,7 +1,5 @@
 package com.glovo.ttglovo.security.config;
 
-import com.glovo.ttglovo.jwt.JwtConfig;
-import com.glovo.ttglovo.jwt.JwtTokenVerifier;
 import com.glovo.ttglovo.jwt.JwtUsernameAndPasswordAuthenticationFilter;
 import com.glovo.ttglovo.security.PasswordEncoder;
 import com.glovo.ttglovo.user.UserService;
@@ -17,8 +15,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import javax.crypto.SecretKey;
 
