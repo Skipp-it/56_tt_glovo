@@ -33,14 +33,14 @@ public class User implements UserDetails {
 
     @Column(
             name = "first_name",
-//            nullable = false,
+            nullable = false,
             columnDefinition = "TEXT"
     )
     private String firstName;
 
     @Column(
             name = "last_name",
-//            nullable = false,
+            nullable = false,
             columnDefinition = "TEXT"
     )
     private String lastName;
@@ -68,7 +68,7 @@ public class User implements UserDetails {
 
     @Column(
             name = "app_user_role",
-//            nullable = false,
+            nullable = false,
             columnDefinition = "TEXT"
     )
     @Enumerated(EnumType.STRING)
