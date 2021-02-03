@@ -22,37 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a92f2e9f-5f76-4a84-bafb-755317a21b5c" name="Default Changelist" comment="first version login with jwt">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_failureaccess_1_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_28_1_jre.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_listenablefuture_9999_0_empty_to_avoid_conflict_with_guava.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_mojo_animal_sniffer_annotations_1_18.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_configuration_processor_2_4_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ee1136e1-620e-417b-ac98-aa1cfa9d8e5f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ee1136e1-620e-417b-ac98-aa1cfa9d8e5f.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ee1136e1-620e-417b-ac98-aa1cfa9d8e5f/storage_v2/_src_/database/glovoDB.IbhABw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ee1136e1-620e-417b-ac98-aa1cfa9d8e5f/storage_v2/_src_/database/glovoDB.IbhABw/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_api_0_10_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_api_0_10_7.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_impl_0_10_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_impl_0_10_7.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_jackson_0_10_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_jackson_0_10_7.xml" afterDir="false" />
+    <list default="true" id="a92f2e9f-5f76-4a84-bafb-755317a21b5c" name="Default Changelist" comment="final register with jwt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-project1-test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-project1-test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/TtGlovoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/TtGlovoApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/jwt/JwtUsernameAndPasswordAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/jwt/JwtUsernameAndPasswordAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/registration/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/registration/RegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/security/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/security/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/user/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/user/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/TtGlovoApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/TtGlovoApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/registration/RegistrationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/registration/RegistrationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/security/config/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/security/config/WebSecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/user/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/user/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/user/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +150,7 @@
       <workItem from="1611429624774" duration="28296000" />
       <workItem from="1611739735323" duration="180000" />
       <workItem from="1611740445626" duration="21768000" />
-      <workItem from="1612110017158" duration="105110000" />
+      <workItem from="1612110017158" duration="111298000" />
     </task>
     <task id="LOCAL-00001" summary="register user">
       <created>1611424380881</created>
@@ -222,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612275548182</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="final register with jwt">
+      <created>1612371049849</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1612371049849</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,7 +224,8 @@
     <MESSAGE value=" solved bug register user" />
     <MESSAGE value="implemented JavaMailSender" />
     <MESSAGE value="first version login with jwt" />
-    <option name="LAST_COMMIT_MESSAGE" value="first version login with jwt" />
+    <MESSAGE value="final register with jwt" />
+    <option name="LAST_COMMIT_MESSAGE" value="final register with jwt" />
   </component>
   <component name="WindowStateProjectService">
     <state x="261" y="252" width="479" height="216" key="#Assign_Data_Sources" timestamp="1611254446279">
@@ -268,10 +248,10 @@
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="476" y="236" width="384" height="247" key="#com.intellij.framework.addSupport.AddSupportForSingleFrameworkDialog/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1611249782657" />
-    <state x="808" y="88" key="#com.intellij.ide.util.MemberChooser" timestamp="1612358230347">
+    <state x="808" y="88" key="#com.intellij.ide.util.MemberChooser" timestamp="1612372903888">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="808" y="88" key="#com.intellij.ide.util.MemberChooser/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612358230347" />
+    <state x="808" y="88" key="#com.intellij.ide.util.MemberChooser/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612372903888" />
     <state x="808" y="88" key="#com.intellij.ide.util.MemberChooser/0.0.1280.720@0.0.1280.720" timestamp="1612252171277" />
     <state x="392" y="230" width="496" height="267" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1612339159021">
       <screen x="0" y="0" width="1280" height="720" />
@@ -295,52 +275,52 @@
     <state x="421" y="116" key="FileChooserDialogImpl/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1611930696867" />
     <state x="2552" y="174" key="FileChooserDialogImpl/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1611740921507" />
     <state x="421" y="116" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1611152653012" />
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1612368813790">
+    <state width="1237" height="211" key="GridCell.Tab.0.bottom" timestamp="1612385841456">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612368813790" />
+    <state width="1237" height="211" key="GridCell.Tab.0.bottom/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612385841456" />
     <state width="1877" height="338" key="GridCell.Tab.0.bottom/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1611739916320" />
     <state width="1237" height="257" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1612339220770" />
-    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1612368813789">
+    <state width="1237" height="211" key="GridCell.Tab.0.center" timestamp="1612385841454">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612368813789" />
+    <state width="1237" height="211" key="GridCell.Tab.0.center/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612385841454" />
     <state width="1877" height="338" key="GridCell.Tab.0.center/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1611739916320" />
     <state width="1237" height="257" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1612339220769" />
-    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1612368813788">
+    <state width="1237" height="211" key="GridCell.Tab.0.left" timestamp="1612385841450">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612368813788" />
+    <state width="1237" height="211" key="GridCell.Tab.0.left/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612385841450" />
     <state width="1877" height="338" key="GridCell.Tab.0.left/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1611739916320" />
     <state width="1237" height="257" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1612339220767" />
-    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1612368813789">
+    <state width="1237" height="211" key="GridCell.Tab.0.right" timestamp="1612385841455">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612368813789" />
+    <state width="1237" height="211" key="GridCell.Tab.0.right/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612385841455" />
     <state width="1877" height="338" key="GridCell.Tab.0.right/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1611739916320" />
     <state width="1237" height="257" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1612339220770" />
-    <state width="1237" height="163" key="GridCell.Tab.1.bottom" timestamp="1612368813791">
+    <state width="1237" height="211" key="GridCell.Tab.1.bottom" timestamp="1612385841458">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.1.bottom/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612368813791" />
+    <state width="1237" height="211" key="GridCell.Tab.1.bottom/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612385841458" />
     <state width="1877" height="338" key="GridCell.Tab.1.bottom/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1611739916321" />
     <state width="1237" height="257" key="GridCell.Tab.1.bottom/0.0.1280.720@0.0.1280.720" timestamp="1612339220772" />
-    <state width="1237" height="163" key="GridCell.Tab.1.center" timestamp="1612368813790">
+    <state width="1237" height="211" key="GridCell.Tab.1.center" timestamp="1612385841457">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.1.center/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612368813790" />
+    <state width="1237" height="211" key="GridCell.Tab.1.center/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612385841457" />
     <state width="1877" height="338" key="GridCell.Tab.1.center/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1611739916320" />
     <state width="1237" height="257" key="GridCell.Tab.1.center/0.0.1280.720@0.0.1280.720" timestamp="1612339220772" />
-    <state width="1237" height="163" key="GridCell.Tab.1.left" timestamp="1612368813790">
+    <state width="1237" height="211" key="GridCell.Tab.1.left" timestamp="1612385841457">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.1.left/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612368813790" />
+    <state width="1237" height="211" key="GridCell.Tab.1.left/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612385841457" />
     <state width="1877" height="338" key="GridCell.Tab.1.left/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1611739916320" />
     <state width="1237" height="257" key="GridCell.Tab.1.left/0.0.1280.720@0.0.1280.720" timestamp="1612339220772" />
-    <state width="1237" height="163" key="GridCell.Tab.1.right" timestamp="1612368813791">
+    <state width="1237" height="211" key="GridCell.Tab.1.right" timestamp="1612385841458">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.1.right/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612368813791" />
+    <state width="1237" height="211" key="GridCell.Tab.1.right/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612385841458" />
     <state width="1877" height="338" key="GridCell.Tab.1.right/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1611739916320" />
     <state width="1237" height="257" key="GridCell.Tab.1.right/0.0.1280.720@0.0.1280.720" timestamp="1612339220772" />
     <state width="1237" height="250" key="GridCell.Tab.2.bottom" timestamp="1612350609825">
@@ -371,10 +351,10 @@
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612353223146" />
-    <state x="233" y="94" key="Vcs.Push.Dialog.v2" timestamp="1612275553364">
+    <state x="233" y="94" key="Vcs.Push.Dialog.v2" timestamp="1612371091252">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="233" y="94" key="Vcs.Push.Dialog.v2/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612275553364" />
+    <state x="233" y="94" key="Vcs.Push.Dialog.v2/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612371091252" />
     <state x="233" y="94" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1611502314659" />
     <state width="647" height="367" key="XDebugger.FullValuePopup" timestamp="1612288952922">
       <screen x="0" y="0" width="1280" height="720" />

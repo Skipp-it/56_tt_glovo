@@ -51,7 +51,7 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
 
-        System.out.println("REQUEST "+request+" create token "+jwtConfig);
+
 
        String token= Jwts.builder()
             .setSubject(authResult.getName())
@@ -62,7 +62,6 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
                 .compact();
         System.out.println("Token "+token);
       response.addHeader(jwtConfig.getAuthorizationHeader() ,jwtConfig.getTokenPrefix()+token);
-
 
     }
 }
