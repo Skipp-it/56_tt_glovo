@@ -22,31 +22,37 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a92f2e9f-5f76-4a84-bafb-755317a21b5c" name="Default Changelist" comment="implemented JavaMailSender">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_api_0_10_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_impl_0_10_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_jackson_0_10_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/user/UserRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/user/UserService.java" afterDir="false" />
+    <list default="true" id="a92f2e9f-5f76-4a84-bafb-755317a21b5c" name="Default Changelist" comment="first version login with jwt">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_3_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_failureaccess_1_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_28_1_jre.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_listenablefuture_9999_0_empty_to_avoid_conflict_with_guava.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_mojo_animal_sniffer_annotations_1_18.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_configuration_processor_2_4_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/ee1136e1-620e-417b-ac98-aa1cfa9d8e5f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ee1136e1-620e-417b-ac98-aa1cfa9d8e5f.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/ee1136e1-620e-417b-ac98-aa1cfa9d8e5f/storage_v2/_src_/database/glovoDB.IbhABw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ee1136e1-620e-417b-ac98-aa1cfa9d8e5f/storage_v2/_src_/database/glovoDB.IbhABw/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_api_0_10_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_api_0_10_7.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_impl_0_10_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_impl_0_10_7.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_jackson_0_10_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_jackson_0_10_7.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spring-boot-project1-test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-project1-test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/appuser/AppUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/appuser/AppUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/user/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/appuser/AppUserRole.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/appuser/AppUserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/registration/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/registration/RegistrationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/registration/token/ConfirmationToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/registration/token/ConfirmationToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/TtGlovoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/TtGlovoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/jwt/JwtUsernameAndPasswordAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/jwt/JwtUsernameAndPasswordAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/registration/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/registration/RegistrationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/security/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/security/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/appuser/AppUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/appuser/AppUserRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/appuser/AppUserRole.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/appuser/AppUserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/registration/RegistrationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/registration/RegistrationService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/registration/token/ConfirmationToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/registration/token/ConfirmationToken.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/user/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/user/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/TtGlovoApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/TtGlovoApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/registration/RegistrationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/registration/RegistrationController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/security/config/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/security/config/WebSecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/user/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/user/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/user/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +104,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="spring.boot" />
   </component>
   <component name="RunManager" selected="Spring Boot.TtGlovoApplication (1)">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
@@ -149,6 +155,9 @@
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpringBootOptions">
+    <option name="showAdditionalConfigNotification" value="false" />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="a92f2e9f-5f76-4a84-bafb-755317a21b5c" name="Default Changelist" comment="" />
@@ -169,7 +178,7 @@
       <workItem from="1611429624774" duration="28296000" />
       <workItem from="1611739735323" duration="180000" />
       <workItem from="1611740445626" duration="21768000" />
-      <workItem from="1612110017158" duration="57835000" />
+      <workItem from="1612110017158" duration="105110000" />
     </task>
     <task id="LOCAL-00001" summary="register user">
       <created>1611424380881</created>
@@ -199,7 +208,21 @@
       <option name="project" value="LOCAL" />
       <updated>1612182463593</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="first version login with jwt">
+      <created>1612275520616</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1612275520616</updated>
+    </task>
+    <task id="LOCAL-00006" summary="first version login with jwt">
+      <created>1612275548182</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1612275548182</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,13 +244,18 @@
     <MESSAGE value="register user" />
     <MESSAGE value=" solved bug register user" />
     <MESSAGE value="implemented JavaMailSender" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented JavaMailSender" />
+    <MESSAGE value="first version login with jwt" />
+    <option name="LAST_COMMIT_MESSAGE" value="first version login with jwt" />
   </component>
   <component name="WindowStateProjectService">
     <state x="261" y="252" width="479" height="216" key="#Assign_Data_Sources" timestamp="1611254446279">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="261" y="252" width="479" height="216" key="#Assign_Data_Sources/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1611254446279" />
+    <state x="267" y="39" key="#Inspections" timestamp="1612354710215">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="267" y="39" key="#Inspections/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612354710215" />
     <state x="233" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1610635395519">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
@@ -240,11 +268,15 @@
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="476" y="236" width="384" height="247" key="#com.intellij.framework.addSupport.AddSupportForSingleFrameworkDialog/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1611249782657" />
-    <state x="808" y="88" key="#com.intellij.ide.util.MemberChooser" timestamp="1612268544477">
+    <state x="808" y="88" key="#com.intellij.ide.util.MemberChooser" timestamp="1612358230347">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="808" y="88" key="#com.intellij.ide.util.MemberChooser/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612268544477" />
+    <state x="808" y="88" key="#com.intellij.ide.util.MemberChooser/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612358230347" />
     <state x="808" y="88" key="#com.intellij.ide.util.MemberChooser/0.0.1280.720@0.0.1280.720" timestamp="1612252171277" />
+    <state x="392" y="230" width="496" height="267" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1612339159021">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="392" y="230" width="496" height="267" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1280.720@0.0.1280.720" timestamp="1612339159021" />
     <state x="196" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1612257798041">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
@@ -253,60 +285,80 @@
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="371" y="108" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612257494429" />
+    <state width="846" height="438" key="DebuggerActiveHint" timestamp="1612289290506">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="846" height="438" key="DebuggerActiveHint/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612289290506" />
     <state x="421" y="116" key="FileChooserDialogImpl" timestamp="1611930696867">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="421" y="116" key="FileChooserDialogImpl/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1611930696867" />
     <state x="2552" y="174" key="FileChooserDialogImpl/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1611740921507" />
     <state x="421" y="116" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1611152653012" />
-    <state width="1237" height="230" key="GridCell.Tab.0.bottom" timestamp="1612274476318">
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1612368813790">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="230" key="GridCell.Tab.0.bottom/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612274476318" />
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612368813790" />
     <state width="1877" height="338" key="GridCell.Tab.0.bottom/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1611739916320" />
-    <state width="1237" height="374" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1612045820862" />
-    <state width="1237" height="230" key="GridCell.Tab.0.center" timestamp="1612274476314">
+    <state width="1237" height="257" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1612339220770" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1612368813789">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="230" key="GridCell.Tab.0.center/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612274476314" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612368813789" />
     <state width="1877" height="338" key="GridCell.Tab.0.center/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1611739916320" />
-    <state width="1237" height="374" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1612045820861" />
-    <state width="1237" height="230" key="GridCell.Tab.0.left" timestamp="1612274476308">
+    <state width="1237" height="257" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1612339220769" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1612368813788">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="230" key="GridCell.Tab.0.left/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612274476308" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612368813788" />
     <state width="1877" height="338" key="GridCell.Tab.0.left/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1611739916320" />
-    <state width="1237" height="374" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1612045820860" />
-    <state width="1237" height="230" key="GridCell.Tab.0.right" timestamp="1612274476318">
+    <state width="1237" height="257" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1612339220767" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1612368813789">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="230" key="GridCell.Tab.0.right/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612274476318" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612368813789" />
     <state width="1877" height="338" key="GridCell.Tab.0.right/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1611739916320" />
-    <state width="1237" height="374" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1612045820861" />
-    <state width="1237" height="230" key="GridCell.Tab.1.bottom" timestamp="1612274476322">
+    <state width="1237" height="257" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1612339220770" />
+    <state width="1237" height="163" key="GridCell.Tab.1.bottom" timestamp="1612368813791">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="230" key="GridCell.Tab.1.bottom/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612274476322" />
+    <state width="1237" height="163" key="GridCell.Tab.1.bottom/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612368813791" />
     <state width="1877" height="338" key="GridCell.Tab.1.bottom/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1611739916321" />
-    <state width="1237" height="374" key="GridCell.Tab.1.bottom/0.0.1280.720@0.0.1280.720" timestamp="1612045820863" />
-    <state width="1237" height="230" key="GridCell.Tab.1.center" timestamp="1612274476320">
+    <state width="1237" height="257" key="GridCell.Tab.1.bottom/0.0.1280.720@0.0.1280.720" timestamp="1612339220772" />
+    <state width="1237" height="163" key="GridCell.Tab.1.center" timestamp="1612368813790">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="230" key="GridCell.Tab.1.center/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612274476320" />
+    <state width="1237" height="163" key="GridCell.Tab.1.center/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612368813790" />
     <state width="1877" height="338" key="GridCell.Tab.1.center/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1611739916320" />
-    <state width="1237" height="374" key="GridCell.Tab.1.center/0.0.1280.720@0.0.1280.720" timestamp="1612045820862" />
-    <state width="1237" height="230" key="GridCell.Tab.1.left" timestamp="1612274476319">
+    <state width="1237" height="257" key="GridCell.Tab.1.center/0.0.1280.720@0.0.1280.720" timestamp="1612339220772" />
+    <state width="1237" height="163" key="GridCell.Tab.1.left" timestamp="1612368813790">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="230" key="GridCell.Tab.1.left/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612274476319" />
+    <state width="1237" height="163" key="GridCell.Tab.1.left/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612368813790" />
     <state width="1877" height="338" key="GridCell.Tab.1.left/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1611739916320" />
-    <state width="1237" height="374" key="GridCell.Tab.1.left/0.0.1280.720@0.0.1280.720" timestamp="1612045820862" />
-    <state width="1237" height="230" key="GridCell.Tab.1.right" timestamp="1612274476321">
+    <state width="1237" height="257" key="GridCell.Tab.1.left/0.0.1280.720@0.0.1280.720" timestamp="1612339220772" />
+    <state width="1237" height="163" key="GridCell.Tab.1.right" timestamp="1612368813791">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="230" key="GridCell.Tab.1.right/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612274476321" />
+    <state width="1237" height="163" key="GridCell.Tab.1.right/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612368813791" />
     <state width="1877" height="338" key="GridCell.Tab.1.right/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1611739916320" />
-    <state width="1237" height="374" key="GridCell.Tab.1.right/0.0.1280.720@0.0.1280.720" timestamp="1612045820863" />
+    <state width="1237" height="257" key="GridCell.Tab.1.right/0.0.1280.720@0.0.1280.720" timestamp="1612339220772" />
+    <state width="1237" height="250" key="GridCell.Tab.2.bottom" timestamp="1612350609825">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1237" height="250" key="GridCell.Tab.2.bottom/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612350609825" />
+    <state width="1237" height="250" key="GridCell.Tab.2.center" timestamp="1612350609824">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1237" height="250" key="GridCell.Tab.2.center/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612350609824" />
+    <state width="1237" height="250" key="GridCell.Tab.2.left" timestamp="1612350609824">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1237" height="250" key="GridCell.Tab.2.left/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612350609824" />
+    <state width="1237" height="250" key="GridCell.Tab.2.right" timestamp="1612350609825">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1237" height="250" key="GridCell.Tab.2.right/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612350609825" />
     <state x="171" y="16" key="Maven.ArtifactSearchDialog" timestamp="1612257447527">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
@@ -315,15 +367,19 @@
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="121" y="55" key="MergeDialog/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1610368783717" />
-    <state x="142" y="0" key="SettingsEditor" timestamp="1611421339487">
+    <state x="142" y="0" key="SettingsEditor" timestamp="1612353223146">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="142" y="0" key="SettingsEditor/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1611421339487" />
-    <state x="233" y="94" key="Vcs.Push.Dialog.v2" timestamp="1612182474972">
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612353223146" />
+    <state x="233" y="94" key="Vcs.Push.Dialog.v2" timestamp="1612275553364">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="233" y="94" key="Vcs.Push.Dialog.v2/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612182474972" />
+    <state x="233" y="94" key="Vcs.Push.Dialog.v2/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612275553364" />
     <state x="233" y="94" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1611502314659" />
+    <state width="647" height="367" key="XDebugger.FullValuePopup" timestamp="1612288952922">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="647" height="367" key="XDebugger.FullValuePopup/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612288952922" />
     <state x="483" y="238" width="312" height="245" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1611315182469">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
@@ -352,6 +408,10 @@
     <state x="228" y="22" key="new project wizard/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1611930698465" />
     <state x="2262" y="33" key="new project wizard/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1611738033605" />
     <state x="228" y="22" key="new project wizard/0.0.1280.720@0.0.1280.720" timestamp="1611147870737" />
+    <state x="436" y="109" key="refactoring.ChangeSignatureDialog" timestamp="1612357450449">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="436" y="109" key="refactoring.ChangeSignatureDialog/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1612357450449" />
     <state x="297" y="161" key="run.anything.popup" timestamp="1612219293749">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
@@ -360,5 +420,12 @@
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="338" y="43" key="spring file set editor/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1611249705351" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="org.springframework.security.authentication.ProviderManager" memberName="providers" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/login")
+
 @CrossOrigin(origins = "http://localhost:3000")
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,10 +18,16 @@ public class UserController {
     UserService userService;
     JwtUsernameAndPasswordAuthenticationFilter jwtUsernameAndPasswordAuthenticationFilter;
 
-    @PostMapping
+    @PostMapping("/login")
     public UserDetails login(@RequestBody UsernameAndPasswordAuthenticationRequest request){
         System.out.println("request "+request);
         return userService.loadUserByUsername(request.getEmail());
     }
+    @GetMapping("/client")
+    public String user(){
+        return "MERGEEEE BAAAA, SA TE F..";
+
+    }
+
 
 }

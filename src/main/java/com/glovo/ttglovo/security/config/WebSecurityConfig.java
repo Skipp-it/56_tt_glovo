@@ -1,6 +1,9 @@
 package com.glovo.ttglovo.security.config;
 
+import com.glovo.ttglovo.jwt.JwtConfig;
+import com.glovo.ttglovo.jwt.JwtTokenVerifier;
 import com.glovo.ttglovo.jwt.JwtUsernameAndPasswordAuthenticationFilter;
+import com.glovo.ttglovo.security.PasswordEncoder;
 import com.glovo.ttglovo.user.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -17,6 +20,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+import javax.crypto.SecretKey;
+
 @Configuration
 @AllArgsConstructor
 @EnableWebSecurity
@@ -24,22 +29,33 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserService userService;
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final PasswordEncoder passwordEncoder;
+    private final SecretKey secretKey;
+    private final JwtConfig jwtConfig;
 
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        System.out.println("befor config "+authenticationManagerBean()+" jwtcongif "+jwtConfig);
         http
                 .cors().and()
                 .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager()))
+                .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager(),jwtConfig,secretKey))
+                .addFilterAfter(new JwtTokenVerifier(secretKey,jwtConfig),JwtUsernameAndPasswordAuthenticationFilter.class)
+
                 .authorizeRequests()
                     .antMatchers("/**/**")
                     .permitAll()
                 .anyRequest()
                 .authenticated();
+        System.out.println("JWTConfin in web service:"+jwtConfig);
+//                .and()
+//                .formLogin()
+//                .defaultSuccessUrl("http//http://localhost:3000/");
+
+        System.out.println("after congig "+daoAuthenticationProvider());
 
     }
 
@@ -53,11 +69,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
-//        @Bean
+        @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider(){
         DaoAuthenticationProvider provider=
                 new DaoAuthenticationProvider();
-        provider.setPasswordEncoder(bCryptPasswordEncoder);
+        provider.setPasswordEncoder(passwordEncoder.bCryptPasswordEncoder());
         provider.setUserDetailsService(userService);
         return provider;
     }

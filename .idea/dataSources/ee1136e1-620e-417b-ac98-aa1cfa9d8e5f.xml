@@ -801,7 +801,7 @@ false Zulu
     <database id="5" parent="1" name="glovoDB">
       <ObjectId>19408</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>3930</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3986</IntrospectionStateNumber>
       <Current>1</Current>
     </database>
     <database id="6" parent="1" name="glovoTTPersonal">
@@ -870,7 +870,7 @@ false Zulu
       <Comment>standard public schema</Comment>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>3931</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3987</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="22" parent="5" name="heap">

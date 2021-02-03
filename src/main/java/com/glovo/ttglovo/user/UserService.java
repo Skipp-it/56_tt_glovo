@@ -30,26 +30,12 @@ public class UserService implements UserDetailsService {
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) {
-        Optional<User> userOptional = userRepository.findByEmail(username);
-        User user = userOptional
-                .orElseThrow(() -> new UsernameNotFoundException("No user " +
-                        "Found with username : " + username));
-
-        return new org.springframework.security
-                .core.userdetails.User(user.getEmail(), user.getPassword(),
-                user.isEnabled(), true, true,
-                true, getAuthorities("USER"));
+        return userRepository.findByEmail(username)
+                .orElseThrow(()-> new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG, username)));
     }
-
-    private Collection<? extends GrantedAuthority> getAuthorities(String role) {
-        return singletonList(new SimpleGrantedAuthority(role));
-    }
-
-
 
 
      public String signUpUser(User user){
-
         boolean userExists= userRepository
                 .findByEmail(user.getEmail())
                 .isPresent();
@@ -59,7 +45,6 @@ public class UserService implements UserDetailsService {
         }
         String encodedPassword= bCryptPasswordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
-
         userRepository.save(user);
 
         String token= UUID.randomUUID().toString(); // am creat tokenul pe care il trimit la client
@@ -71,9 +56,9 @@ public class UserService implements UserDetailsService {
                  user
          );
          confirmationTokenService.saveConfirmationToken(confirmationToken);
-
         return token;
      }
+
     public int enableAppUser(String email) {
         return userRepository.enableAppUser(email);
     }
