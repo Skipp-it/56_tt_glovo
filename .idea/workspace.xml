@@ -22,26 +22,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a92f2e9f-5f76-4a84-bafb-755317a21b5c" name="Default Changelist" comment="final register with jwt">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/jwt/JwtConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/jwt/JwtSecretKey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/jwt/JwtTokenVerifier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/jwt/JwtConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/jwt/JwtSecretKey.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/jwt/JwtTokenVerifier.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/jwt/JwtUsernameAndPasswordAuthenticationFilter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/jwt/UsernameAndPasswordAuthenticationRequest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/user/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/jwt/JwtUsernameAndPasswordAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/jwt/JwtUsernameAndPasswordAuthenticationFilter.java" afterDir="false" />
+    <list default="true" id="a92f2e9f-5f76-4a84-bafb-755317a21b5c" name="Default Changelist" comment="merged with login_ branch">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/TtGlovoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/TtGlovoApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/login/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/login/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/login/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/login/service/LoginService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/register/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/register/controller/RegisterController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/security/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/security/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/user/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/jwt/JwtUsernameAndPasswordAuthenticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/jwt/JwtUsernameAndPasswordAuthenticationFilter.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,20 +112,7 @@
       <data-source id="ee1136e1-620e-417b-ac98-aa1cfa9d8e5f" namespace="database/&quot;glovoDB&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="TtGlovoApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="spring-boot-project1-test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.glovo.ttglovo.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.glovo.ttglovo.TtGlovoApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TtGlovoApplication (2)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="TtGlovoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="56_tt_glovo" />
       <extension name="coverage">
         <pattern>
@@ -149,17 +125,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TtGlovoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="tt-glovo" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.glovo.ttglovo.TtGlovoApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.TtGlovoApplication (2)" />
-        <item itemvalue="Spring Boot.TtGlovoApplication (1)" />
+        <item itemvalue="Spring Boot.TtGlovoApplication" />
         <item itemvalue="Database Script.glovoDB_public_meal_prices.sql" />
         <item itemvalue="Spring Boot.TtGlovoApplication (1)" />
       </list>
@@ -240,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612371049849</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="merged with login_ branch">
+      <created>1612392968573</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1612392968573</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,7 +239,8 @@
     <MESSAGE value="implemented JavaMailSender" />
     <MESSAGE value="first version login with jwt" />
     <MESSAGE value="final register with jwt" />
-    <option name="LAST_COMMIT_MESSAGE" value="final register with jwt" />
+    <MESSAGE value="merged with login_ branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="merged with login_ branch" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

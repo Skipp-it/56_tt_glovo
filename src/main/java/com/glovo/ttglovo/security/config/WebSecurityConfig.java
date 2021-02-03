@@ -1,5 +1,7 @@
 package com.glovo.ttglovo.security.config;
 
+import com.glovo.ttglovo.jwt.JwtConfig;
+import com.glovo.ttglovo.jwt.JwtTokenVerifier;
 import com.glovo.ttglovo.jwt.JwtUsernameAndPasswordAuthenticationFilter;
 import com.glovo.ttglovo.security.PasswordEncoder;
 import com.glovo.ttglovo.user.UserService;
