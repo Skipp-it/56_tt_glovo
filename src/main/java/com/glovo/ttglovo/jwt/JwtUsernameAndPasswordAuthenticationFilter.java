@@ -63,6 +63,5 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
         System.out.println("Token "+token);
       response.addHeader(jwtConfig.getAuthorizationHeader() ,jwtConfig.getTokenPrefix()+token);
 
-
     }
 }
