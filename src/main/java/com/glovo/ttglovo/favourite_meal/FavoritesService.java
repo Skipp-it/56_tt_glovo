@@ -1,8 +1,8 @@
-package com.glovo.ttglovo.favourite_meal.service;
+package com.glovo.ttglovo.favourite_meal;
 
 
-import com.glovo.ttglovo.favourite_meal.model.FavoriteMeal;
-import com.glovo.ttglovo.favourite_meal.repository.FavoritesRepository;
+import com.glovo.ttglovo.favourite_meal.FavoriteMeal;
+import com.glovo.ttglovo.favourite_meal.FavoritesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,26 +1,30 @@
 package com.glovo.ttglovo.user;
 
+import com.glovo.ttglovo.cart.CartItem;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
+
 @ToString
 @Getter
 @Setter
 @EqualsAndHashCode
 @NoArgsConstructor
-@Entity(name="AppUser")
-@Table(name="user_table")
+@Entity(name = "AppUser")
+@Table(name = "user_table")
 @AllArgsConstructor
 public class User implements UserDetails {
 
     @Id
     @SequenceGenerator(
-            name="user_sequence",
+            name = "user_sequence",
             sequenceName = "user_sequence",
             allocationSize = 1
     )
@@ -33,14 +37,14 @@ public class User implements UserDetails {
 
     @Column(
             name = "first_name",
-//            nullable = false,
+            nullable = false,
             columnDefinition = "TEXT"
     )
     private String firstName;
 
     @Column(
             name = "last_name",
-//            nullable = false,
+            nullable = false,
             columnDefinition = "TEXT"
     )
     private String lastName;
@@ -59,7 +63,7 @@ public class User implements UserDetails {
     )
     private String password;
 
-        @Column(
+    @Column(
             name = "username",
             nullable = false,
             columnDefinition = "TEXT"
@@ -68,13 +72,23 @@ public class User implements UserDetails {
 
     @Column(
             name = "app_user_role",
-//            nullable = false,
+            nullable = false,
             columnDefinition = "TEXT"
     )
+
+    @OneToMany(
+            mappedBy = "user",
+            orphanRemoval = true,
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+            fetch = FetchType.LAZY
+    )
+    private List<CartItem> cartItems = new ArrayList<>();
+
+
     @Enumerated(EnumType.STRING)
     private UserRole userRole;
-    private Boolean locked=false;
-    private Boolean enabled=false;
+    private Boolean locked = false;
+    private Boolean enabled = false;
 
 
     public User(String firstName, String lastName, String username, String email, String password, UserRole userRole) {
@@ -89,8 +103,23 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        SimpleGrantedAuthority authority= new SimpleGrantedAuthority(userRole.name());
+        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(userRole.name());
         return Collections.singletonList(authority);
+    }
+
+
+    public void addCartItem(CartItem cartItem) {
+        if (!this.cartItems.contains(cartItem)) {
+            this.cartItems.add(cartItem);
+            cartItem.setUser(this);
+        }
+    }
+
+    public void remove(CartItem cartItem) {
+        if (!this.cartItems.contains(cartItem)) {
+            this.cartItems.remove(cartItem);
+            cartItem.setUser(null);
+        }
     }
 
     @Override

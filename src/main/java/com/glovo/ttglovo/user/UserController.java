@@ -1,12 +1,17 @@
 package com.glovo.ttglovo.user;
 
 
+import com.glovo.ttglovo.favourite_meal.FavoriteMeal;
+import com.glovo.ttglovo.favourite_meal.FavoritesService;
 import com.glovo.ttglovo.jwt.JwtUsernameAndPasswordAuthenticationFilter;
 import com.glovo.ttglovo.jwt.UsernameAndPasswordAuthenticationRequest;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @RestController
 
@@ -25,9 +30,9 @@ public class UserController {
     }
     @GetMapping("/client")
     public String user(){
-        return "MERGEEEE BAAAA, SA TE F..";
+        return "MERGEEEE BAAAA";
 
     }
-
-
 }
+
+

@@ -1,7 +1,5 @@
-package com.glovo.ttglovo.favourite_meal.controller;
+package com.glovo.ttglovo.favourite_meal;
 
-import com.glovo.ttglovo.favourite_meal.model.FavoriteMeal;
-import com.glovo.ttglovo.favourite_meal.service.FavoritesService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
