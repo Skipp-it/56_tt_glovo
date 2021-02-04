@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a92f2e9f-5f76-4a84-bafb-755317a21b5c" name="Default Changelist" comment="merged with login_ branch">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/TtGlovoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/TtGlovoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/login/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/login/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/login/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/login/service/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/register/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/register/controller/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/security/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glovo/ttglovo/security/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/jwt/JwtUsernameAndPasswordAuthenticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/glovo/ttglovo/jwt/JwtUsernameAndPasswordAuthenticationFilter.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="registration_and_login_mihaiV" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JupyterTrust" id="25a82773-d20f-4aa3-a258-254880c6d4b5" />
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Users\Mihai\AppData\Local\JetBrains\Toolbox\apps\IDEA-U\ch-0\202.7319.50\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1lnzWN8jooVZYcnnqCq3nBq9V95" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="spring.boot" />
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.TtGlovoApplication">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="glovoDB_public_meal_prices.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/src/main/resources/glovoDB_public_meal_prices.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="ee1136e1-620e-417b-ac98-aa1cfa9d8e5f" namespace="database/&quot;glovoDB&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TtGlovoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="56_tt_glovo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.glovo.ttglovo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.glovo.ttglovo.TtGlovoApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.TtGlovoApplication" />
+        <item itemvalue="Database Script.glovoDB_public_meal_prices.sql" />
+        <item itemvalue="Spring Boot.TtGlovoApplication (1)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpringBootOptions">
+    <option name="showAdditionalConfigNotification" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a92f2e9f-5f76-4a84-bafb-755317a21b5c" name="Default Changelist" comment="" />
+      <created>1608247677190</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1608247677190</updated>
+      <workItem from="1608247678829" duration="224000" />
+      <workItem from="1609179019515" duration="4274000" />
+      <workItem from="1609674659016" duration="35000" />
+      <workItem from="1610351557743" duration="6827000" />
+      <workItem from="1610369431271" duration="238000" />
+      <workItem from="1610635000954" duration="2207000" />
+      <workItem from="1610643412317" duration="5595000" />
+      <workItem from="1611153093001" duration="3782000" />
+      <workItem from="1611251118810" duration="43864000" />
+      <workItem from="1611418575884" duration="8591000" />
+      <workItem from="1611429624774" duration="28296000" />
+      <workItem from="1611739735323" duration="180000" />
+      <workItem from="1611740445626" duration="21768000" />
+      <workItem from="1612110017158" duration="111298000" />
+    </task>
+    <task id="LOCAL-00001" summary="register user">
+      <created>1611424380881</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1611424380881</updated>
+    </task>
+    <task id="LOCAL-00002" summary="register user">
+      <created>1611424401854</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1611424401854</updated>
+    </task>
+    <task id="LOCAL-00003" summary=" solved bug register user">
+      <created>1611502055195</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1611502055195</updated>
+    </task>
+    <task id="LOCAL-00004" summary="implemented JavaMailSender">
+      <created>1612182463593</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1612182463593</updated>
+    </task>
+    <task id="LOCAL-00005" summary="first version login with jwt">
+      <created>1612275520616</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1612275520616</updated>
+    </task>
+    <task id="LOCAL-00006" summary="first version login with jwt">
+      <created>1612275548182</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1612275548182</updated>
+    </task>
+    <task id="LOCAL-00007" summary="final register with jwt">
+      <created>1612371049849</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1612371049849</updated>
+    </task>
+    <task id="LOCAL-00008" summary="merged with login_ branch">
+      <created>1612392968573</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1612392968573</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="register user" />
+    <MESSAGE value=" solved bug register user" />
+    <MESSAGE value="implemented JavaMailSender" />
+    <MESSAGE value="first version login with jwt" />
+    <MESSAGE value="final register with jwt" />
+    <MESSAGE value="merged with login_ branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="merged with login_ branch" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="org.springframework.security.authentication.ProviderManager" memberName="providers" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+</project>

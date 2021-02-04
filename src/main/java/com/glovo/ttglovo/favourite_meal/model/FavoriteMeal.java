@@ -1,6 +1,7 @@
 package com.glovo.ttglovo.favourite_meal.model;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Entity(name="FavoriteMeal")
 @Table(name="favorites_meal")
@@ -12,6 +13,9 @@ public class FavoriteMeal {
 
     @Column(name="price")
     private int price;
+
+    @Column(name = "user_id")
+    private UUID user_id;
 
 
 

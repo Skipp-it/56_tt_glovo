@@ -1,7 +1,7 @@
 package com.glovo.ttglovo.register.controller;
 
-import com.glovo.ttglovo.user.model.User;
-import com.glovo.ttglovo.user.service.UserService;
+import com.glovo.ttglovo.user.User;
+import com.glovo.ttglovo.user.UserService;
 import org.springframework.web.bind.annotation.*;
 
 
