@@ -1,6 +1,6 @@
 package com.glovo.ttglovo.cart;
 
-import com.glovo.ttglovo.user.User;
+import com.glovo.ttglovo.securityManagement.appuser.AppUser;
 import lombok.*;
 
 import javax.persistence.*;
@@ -36,7 +36,7 @@ public class CartItem {
             columnDefinition = "Integer")
     private Integer mealPrice;
 
-    public CartItem(Long mealId, Integer mealPrice, User user) {
+    public CartItem(Long mealId, Integer mealPrice, AppUser user) {
         this.mealId = mealId;
         this.mealPrice = mealPrice;
         this.user = user;
@@ -51,7 +51,7 @@ public class CartItem {
                     name = "user_id_fk"
             )
     )
-    private User user;
+    private AppUser user;
 
 
 }
