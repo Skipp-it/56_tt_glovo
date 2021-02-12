@@ -12,7 +12,7 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:3000")
 public class MealPricesController {
 
-    private MealPricesService mealPricesService;
+    private final MealPricesService mealPricesService;
 
 
     public MealPricesController(MealPricesService mealPricesService) {

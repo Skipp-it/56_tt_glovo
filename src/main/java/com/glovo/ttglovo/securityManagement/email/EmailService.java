@@ -32,8 +32,8 @@ public class EmailService implements EmailSender {
             //true pentru ca mesajul sa fie sub forma HTML
             helper.setText(email, true);
             helper.setTo(to);
-            helper.setSubject("Confirm your email");
-            helper.setFrom("mihairaducroitoru@gmail.com");
+            helper.setSubject("Confirm your email dl client");
+//            helper.setFrom("mihairaducroitoru@gmail.com");
             mailSender.send(mimeMessage);
 
         } catch (MessagingException e) {
