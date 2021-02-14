@@ -16,6 +16,8 @@ public class AppUserInfoController {
 
     @GetMapping("/client")
     public String currentUser() {
+        //TODO atentie user e email!!!
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         AppUser user = (AppUser) appUserService.loadUserByUsername((String) authentication.getPrincipal());
         return user.getUsername() + "\n" + user.getAppUserRole();

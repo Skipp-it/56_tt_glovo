@@ -19,11 +19,12 @@ public class CustomUserDetailsService implements UserDetailsService {
      * Spring will call this code to retrieve a user upon login from the DB.
      */
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
         //this time the username is the email!!!
-        AppUser user = users.findByEmail(username)
-                .orElseThrow(()-> new UsernameNotFoundException("Username " + username+" not found"));
+        AppUser user = users.findByEmail(email)
+                .orElseThrow(()-> new UsernameNotFoundException("Email " + email+" not found"));
+        System.out.println("----in custom detserv 27" + user);
 
         return (UserDetails) new UsernameAndPasswordAuthenticationRequest(
                                         user.getEmail(),

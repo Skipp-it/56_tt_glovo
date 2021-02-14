@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserCredentials {
-    //TODO username is not on db!!!
-    private String username;
+public class LoginRequest {
+
+    private String email;
     private String password;
 
 }

@@ -19,11 +19,11 @@ import java.util.List;
 @Slf4j
 public class JwtTokenServices {
 
-    @Value("${security.jwt.token.secret-key:secret}")
-    private String secretKey = "secretkey";
+    @Value("${security.jwt.token.secret-key}")
+    private String secretKey;
 
-    @Value("${security.jwt.token.expire-length:3600000}")
-    private final long validityInMilliseconds = 36000000; // 10 hours
+    @Value("${security.jwt.token.expire-length}")
+    private long validityInMilliseconds;
 
     private final String rolesFieldName = "roles";
 
@@ -33,9 +33,10 @@ public class JwtTokenServices {
     }
 
     // Creates a JWT token
-    public String createToken(String username, List<String> roles) {
+    public String createToken(String email, List<String> roles) {
         // Add a custom field to the token
-        Claims claims = Jwts.claims().setSubject(username);
+
+        Claims claims = Jwts.claims().setSubject(email);
         claims.put(rolesFieldName, roles);
         Date now = new Date();
         Date validity = new Date(now.getTime() + validityInMilliseconds);

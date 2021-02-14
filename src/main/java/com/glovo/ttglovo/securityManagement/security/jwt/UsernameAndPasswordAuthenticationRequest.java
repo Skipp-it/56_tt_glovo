@@ -12,7 +12,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class UsernameAndPasswordAuthenticationRequest {
 
-    private String username;
+    private String email;
     private String password;
     private AppUserRole appUserRole;
 }

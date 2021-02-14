@@ -7,7 +7,6 @@ import com.glovo.ttglovo.securityManagement.security.jwt.JwtTokenServices;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -39,12 +38,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                     .authorizeRequests()
-                        .antMatchers("/login", "/register/**").permitAll()
                         .antMatchers("/admin/**").hasAuthority("ADMIN")
-                        .antMatchers("/register/**").permitAll()
+                        .antMatchers("/login", "/register/**").permitAll()
                         .antMatchers("/meals/**", "/prices").permitAll()
                         .antMatchers("/favorites").authenticated()
-                        .antMatchers( "/me").authenticated()
+                        .antMatchers( "/client").authenticated()
                         .anyRequest().denyAll()
                 .and()
                 .addFilterBefore(new JwtTokenFilter(jwtTokenServices), UsernamePasswordAuthenticationFilter.class);
@@ -59,7 +57,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-
         provider.setPasswordEncoder(bCryptPasswordEncoder);
         provider.setUserDetailsService(appUserService);
         return provider;
