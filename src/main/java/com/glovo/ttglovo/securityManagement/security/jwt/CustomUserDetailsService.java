@@ -24,7 +24,6 @@ public class CustomUserDetailsService implements UserDetailsService {
         //this time the username is the email!!!
         AppUser user = users.findByEmail(email)
                 .orElseThrow(()-> new UsernameNotFoundException("Email " + email+" not found"));
-        System.out.println("----in custom detserv 27" + user);
 
         return (UserDetails) new UsernameAndPasswordAuthenticationRequest(
                                         user.getEmail(),

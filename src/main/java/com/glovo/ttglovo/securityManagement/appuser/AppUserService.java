@@ -1,8 +1,6 @@
 package com.glovo.ttglovo.securityManagement.appuser;
 
-import com.glovo.ttglovo.prices.repository.MealPricesRepository;
 import com.glovo.ttglovo.securityManagement.registration.token.ConfirmationToken;
-//import com.example.todo_app.securityManagement.registration.token.ConfirmationTokenService;
 import com.glovo.ttglovo.securityManagement.registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -23,7 +21,6 @@ public class AppUserService implements UserDetailsService {
     private final AppUserRepository appUserRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final ConfirmationTokenService confirmationTokenService;
-//    private final MealPricesRepository mealPricesRepository;
 
 
     @Override
