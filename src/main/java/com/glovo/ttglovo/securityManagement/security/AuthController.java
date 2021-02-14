@@ -59,7 +59,7 @@ public class AuthController {
             Cookie cookie = new Cookie("token", token);
             cookie.setMaxAge(100);
             cookie.setHttpOnly(true);
-//            response.addCookie(cookie);
+            response.addCookie(cookie);
 
             return ResponseEntity.ok(model);
         } catch (AuthenticationException e) {
