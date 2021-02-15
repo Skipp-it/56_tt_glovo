@@ -33,14 +33,14 @@ public class User implements UserDetails {
 
     @Column(
             name = "first_name",
-//            nullable = false,
+            nullable = false,
             columnDefinition = "TEXT"
     )
     private String firstName;
 
     @Column(
             name = "last_name",
-//            nullable = false,
+            nullable = false,
             columnDefinition = "TEXT"
     )
     private String lastName;
@@ -75,6 +75,7 @@ public class User implements UserDetails {
     private UserRole userRole;
     private Boolean locked=false;
     private Boolean enabled=false;
+
 
 
     public User(String firstName, String lastName, String username, String email, String password, UserRole userRole) {

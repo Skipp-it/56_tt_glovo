@@ -1,22 +1,19 @@
 package com.glovo.ttglovo.user;
 
+
+
 import com.glovo.ttglovo.registration.token.ConfirmationToken;
 import com.glovo.ttglovo.registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import org.springframework.transaction.annotation.Transactional;
+
 import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.Optional;
 import java.util.UUID;
-import static java.util.Collections.singletonList;
 
 @Service
 @AllArgsConstructor
@@ -30,6 +27,7 @@ public class UserService implements UserDetailsService {
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) {
+        System.out.println("USER_SERVICE "+username);
         return userRepository.findByEmail(username)
                 .orElseThrow(()-> new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG, username)));
     }

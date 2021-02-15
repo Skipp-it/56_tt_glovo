@@ -2,6 +2,7 @@ package com.glovo.ttglovo.favourite_meal.controller;
 
 import com.glovo.ttglovo.favourite_meal.model.FavoriteMeal;
 import com.glovo.ttglovo.favourite_meal.service.FavoritesService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/favorites")
+//@PreAuthorize("hasRole('ADMIN')")
 @CrossOrigin(origins = "http://localhost:3000")
 public class FavoritesController {
 

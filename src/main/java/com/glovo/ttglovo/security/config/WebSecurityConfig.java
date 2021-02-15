@@ -3,6 +3,7 @@ package com.glovo.ttglovo.security.config;
 import com.glovo.ttglovo.jwt.JwtConfig;
 import com.glovo.ttglovo.jwt.JwtTokenVerifier;
 import com.glovo.ttglovo.jwt.JwtUsernameAndPasswordAuthenticationFilter;
+
 import com.glovo.ttglovo.security.PasswordEncoder;
 import com.glovo.ttglovo.user.UserService;
 import lombok.AllArgsConstructor;
@@ -18,7 +19,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import javax.crypto.SecretKey;
 
@@ -36,21 +36,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        System.out.println("befor config "+authenticationManagerBean()+" jwtcongif "+jwtConfig);
+        System.out.println("before config "+authenticationManagerBean()+" jwtcongig "+jwtConfig);
         http
                 .cors().and()
                 .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager(),jwtConfig,secretKey))
+                .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager(),jwtConfig,secretKey,userService))
                 .addFilterAfter(new JwtTokenVerifier(secretKey,jwtConfig),JwtUsernameAndPasswordAuthenticationFilter.class)
 
                 .authorizeRequests()
-                    .antMatchers("/**/**")
+                .antMatchers("/favorites").hasAuthority("ADMIN")
+//                .antMatchers("test-endpoint/**").hasAuthority("USER")
+                .antMatchers("/**")
                     .permitAll()
                 .anyRequest()
                 .authenticated();
-        System.out.println("JWTConfin in web service:"+jwtConfig);
+
 //                .and()
 //                .formLogin()
 //                .defaultSuccessUrl("http//http://localhost:3000/");

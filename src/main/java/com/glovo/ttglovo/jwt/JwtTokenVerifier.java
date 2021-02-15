@@ -6,7 +6,6 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.security.Keys;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -42,7 +41,9 @@ public class  JwtTokenVerifier extends OncePerRequestFilter {
                 filterChain.doFilter(request,response);
                 return;
             }
+
         String token=authorizationHeader.replace(jwtConfig.getTokenPrefix(),"");
+
             try{
 
                Jws<Claims> claimsJws= Jwts.parser()
@@ -58,9 +59,11 @@ public class  JwtTokenVerifier extends OncePerRequestFilter {
 
                 Authentication authentication= new UsernamePasswordAuthenticationToken(username, null,simpleGrantedAuthorities);
                 SecurityContextHolder.getContext().setAuthentication(authentication);
+
             }catch (JwtException e){
                 throw new IllegalStateException(String.format("Token %s cannot be truest",token));
             }
+
             filterChain.doFilter(request,response);
     }
 }

@@ -1,10 +1,8 @@
 package com.glovo.ttglovo.user;
 
 
-import com.glovo.ttglovo.jwt.JwtUsernameAndPasswordAuthenticationFilter;
 import com.glovo.ttglovo.jwt.UsernameAndPasswordAuthenticationRequest;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,20 +10,25 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @AllArgsConstructor
-@NoArgsConstructor
+
 public class UserController {
 
-    UserService userService;
-    JwtUsernameAndPasswordAuthenticationFilter jwtUsernameAndPasswordAuthenticationFilter;
+  private final UserService userService;
+
+
+
+
 
     @PostMapping("/login")
-    public UserDetails login(@RequestBody UsernameAndPasswordAuthenticationRequest request){
+    public String login(@RequestBody UsernameAndPasswordAuthenticationRequest request){
         System.out.println("request "+request);
-        return userService.loadUserByUsername(request.getEmail());
+        return "BAAA";
     }
-    @GetMapping("/client")
-    public String user(){
-        return "MERGEEEE BAAAA, SA TE F..";
+    @GetMapping("/user/{email}")
+    public UserDetails user(@PathVariable String email){
+
+        System.out.println("request "+email);
+   return   userService.loadUserByUsername(email);
 
     }
 
