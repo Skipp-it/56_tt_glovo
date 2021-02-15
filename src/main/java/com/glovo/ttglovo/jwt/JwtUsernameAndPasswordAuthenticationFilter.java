@@ -78,12 +78,12 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
 
         System.out.println("Token=== " + token);
         response.addHeader(jwtConfig.getAuthorizationHeader(), jwtConfig.getTokenPrefix()+token);
-//        response.getWriter().write(
-//                "{\"" +
-//                        "id" + "\":\"" + ((User) useru).getId() +"\",\"" +
-//                     "token"+"\":\""+token+"\",\""+
-//                     "first_name"+"\":\""+((User) useru).getFirstName()+"\"}"
-//        );
+        response.getWriter().write(
+                "{\"" +
+                        "id" + "\":\"" + ((User) useru).getId() +"\",\"" +
+                     "token"+"\":\""+token+"\",\""+
+                     "first_name"+"\":\""+((User) useru).getFirstName()+"\"}"
+        );
 
     }
 
