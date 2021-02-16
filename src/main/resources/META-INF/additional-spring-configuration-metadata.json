@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "loging.level.org.springframework.security",
+      "type": "java.lang.String",
+      "description": "Description for loging.level.org.springframework.security."
+    },
+    {
+      "name": "security.jwt.token.secret-key",
+      "type": "java.lang.String",
+      "description": "Description for security.jwt.token.secret-key."
+    }
+
+  ] }
