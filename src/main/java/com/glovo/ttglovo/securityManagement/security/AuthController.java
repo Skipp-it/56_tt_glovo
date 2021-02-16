@@ -31,7 +31,7 @@ public class AuthController {
     private final JwtTokenServices jwtTokenServices;
 
     @PostMapping("/login")
-    public ResponseEntity signin(@RequestBody LoginRequest data, HttpServletResponse response) {
+    public ResponseEntity<?> signin(@RequestBody LoginRequest data, HttpServletResponse response) {
         try {
             String email = data.getEmail();
 
@@ -47,16 +47,17 @@ public class AuthController {
 
             String token = jwtTokenServices.createToken(email, roles);
             Map<Object, Object> model = new HashMap<>();
-            model.put("email", email);
+            model.put("email", email); // TODO de scos email
             model.put("name", name);
             model.put("roles", roles);
             model.put("token", token);
 
-            //add token to cookie
-            Cookie cookie = new Cookie("token", token);
-            cookie.setMaxAge(100);
-            cookie.setHttpOnly(true);
-            response.addCookie(cookie);
+//            //add token to cookie
+//            Cookie cookie = new Cookie("token", token);
+//            cookie.setMaxAge(100);
+//            cookie.setHttpOnly(true);
+//            response.addCookie(cookie);
+//            System.out.println("cookie   " + cookie);
 
             return ResponseEntity.ok(model);
         } catch (AuthenticationException e) {
