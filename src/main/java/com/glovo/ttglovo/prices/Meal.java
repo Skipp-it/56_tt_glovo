@@ -23,7 +23,8 @@ public class Meal {
     @Column(
             name = "price",
             nullable = false,
-            columnDefinition = "Integer"
+            columnDefinition = "Integer",
+            updatable = false
     )
     private Integer price;
 

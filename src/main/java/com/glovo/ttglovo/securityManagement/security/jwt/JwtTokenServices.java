@@ -85,9 +85,15 @@ public class JwtTokenServices {
         String username = body.getSubject();
         List<String> roles = (List<String>) body.get(rolesFieldName);
         List<SimpleGrantedAuthority> authorities = new LinkedList<>();
-        for (String role: roles){
+        for (String role : roles) {
             authorities.add(new SimpleGrantedAuthority(role));
         }
-        return new UsernamePasswordAuthenticationToken(username, "",authorities);
+        return new UsernamePasswordAuthenticationToken(username, "", authorities);
+    }
+
+    public String getIdFromToken(String token) {
+        return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody().getSubject();
+
+
     }
 }

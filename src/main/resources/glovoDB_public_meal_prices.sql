@@ -1,10 +1,10 @@
 
 DROP TABLE IF EXISTS meal;
 
-create table meal_prices
+create table meal
 (
     id    bigint  not null
-        constraint meal_prices_pkey
+        constraint meal_pkey
             primary key,
     price integer not null
 );

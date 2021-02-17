@@ -73,8 +73,12 @@ public class AppUser implements UserDetails {
     )
     private String password;
 
-    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
-            mappedBy = "appUser"
+    @OneToMany(
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+            mappedBy = "appUser",
+            orphanRemoval = true,
+            fetch = FetchType.LAZY
+
     )
     private List<UserFavMeal> userFavMeals = new ArrayList<>();
 

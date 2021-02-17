@@ -3,17 +3,15 @@ package com.glovo.ttglovo.favourite_meal;
 
 import com.glovo.ttglovo.prices.Meal;
 import com.glovo.ttglovo.securityManagement.appuser.AppUser;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "UserFavoriteMeal")
-@Table(name = "user_favorite_meal")
+@Entity(name = "UserFavMeal")
+@Table(name = "user_fav_meal")
 public class UserFavMeal {
 
     @EmbeddedId
@@ -30,5 +28,8 @@ public class UserFavMeal {
     @JoinColumn(name = "meal_id")
     private Meal meal;
 
-
+    public UserFavMeal(UserFavMealId id, Meal meal) {
+        this.id = id;
+        this.meal = meal;
+    }
 }
