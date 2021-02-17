@@ -1,6 +1,7 @@
 package com.glovo.ttglovo.securityManagement.appuser;
 
 import com.glovo.ttglovo.cart.CartItem;
+import com.glovo.ttglovo.favourite_meal.UserFavMeal;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -72,7 +73,10 @@ public class AppUser implements UserDetails {
     )
     private String password;
 
-// no username, only first name
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+            mappedBy = "appUser"
+    )
+    private List<UserFavMeal> userFavMeals = new ArrayList<>();
 
     @Column(
             name = "app_user_role",
@@ -155,6 +159,22 @@ public class AppUser implements UserDetails {
     public int hashCode() {
         return Objects.hash(id, firstName, lastName, email, password, appUserRole, locked, enabled);
     }
+
+
+    public List<UserFavMeal> getUserFavMeals() {
+        return userFavMeals;
+    }
+
+    public void addUserFavoriteMeal(UserFavMeal userFavMeal) {
+        if (!userFavMeals.contains(userFavMeal)) {
+            userFavMeals.add(userFavMeal);
+        }
+    }
+
+    public void removeUserFavoriteMeal(UserFavMeal userFavMeal) {
+        userFavMeals.remove(userFavMeal);
+    }
+
 
     @Override
     public String toString() {
