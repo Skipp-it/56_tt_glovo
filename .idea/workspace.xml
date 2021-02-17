@@ -104,6 +104,17 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.TtGlovoApplication (1)">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="glovoDB_public_meal_prices.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/src/main/resources/glovoDB_public_meal_prices.sql" />
       <script-mode>FILE</script-mode>
@@ -152,6 +163,7 @@
         <item itemvalue="JUnit.TtGlovoApplicationTests.contextLoads" />
         <item itemvalue="Database Script.glovoDB_public_meal_prices.sql" />
         <item itemvalue="Spring Boot.TtGlovoApplication (1)" />
+        <item itemvalue="JUnit.TtGlovoApplicationTests.contextLoads" />
       </list>
     </recent_temporary>
   </component>
