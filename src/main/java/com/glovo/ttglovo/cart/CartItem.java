@@ -7,6 +7,7 @@ import lombok.*;
 
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -61,7 +62,29 @@ public class CartItem {
     )
     private Integer clientSeenPrice;
 
+    @Override
+    public String toString() {
+        return "CartItem{" +
+                "id=" + id +
+                ", user=" + user +
+                ", meal=" + meal +
+                ", quantity=" + quantity +
+                ", clientSeenPrice=" + clientSeenPrice +
+                '}';
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CartItem cartItem = (CartItem) o;
+        return Objects.equals(id, cartItem.id) && Objects.equals(user, cartItem.user) && Objects.equals(meal, cartItem.meal) && Objects.equals(quantity, cartItem.quantity) && Objects.equals(clientSeenPrice, cartItem.clientSeenPrice);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, user, meal, quantity, clientSeenPrice);
+    }
 }
 
 

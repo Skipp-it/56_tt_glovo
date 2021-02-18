@@ -2,8 +2,7 @@ package com.glovo.ttglovo.prices;
 
 
 import com.glovo.ttglovo.favourite_meal.Favorite;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,8 +12,10 @@ import java.util.Set;
 
 @Entity(name = "Meal")
 @Table(name = "meal")
-@Data
 @NoArgsConstructor
+@Getter
+@Setter
+@AllArgsConstructor
 public class Meal {
     @Id
     @SequenceGenerator(
@@ -65,4 +66,13 @@ public class Meal {
 //        favorites.remove(favorite);
 //    }
 
+
+    @Override
+    public String toString() {
+        return "Meal{" +
+                "id=" + id +
+                ", price=" + price +
+                ", favorites=" + favorites +
+                '}';
+    }
 }

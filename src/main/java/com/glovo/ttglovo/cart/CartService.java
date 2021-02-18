@@ -50,8 +50,6 @@ public class CartService {
 
     public List<CartDto> getAllCartItems(String token) {
         Long userId = getUserFromJwt(token).getId();
-        System.out.println("-------in cart service 50");
-        System.out.println( cartRepository.findAllCartItemsByUserId(userId).toString());
         return transformToDto(cartRepository.findAllCartItemsByUserId(userId));
     }
 
@@ -60,5 +58,14 @@ public class CartService {
                 stream()
                 .map(item -> new CartDto(item.getId().getMealId(), item.getQuantity(), item.getClientSeenPrice()))
                 .collect(Collectors.toList());
+    }
+
+    public void removeCartItem(Long id, String token) {
+        AppUser user = getUserFromJwt(token);
+        Meal meal = mealRepository.findById(id).orElseThrow(() ->
+                new CartItemNotFoundException(String.format("cart with id %s not found", id)));
+
+        CartId cartId = new CartId(user.getId(), meal.getId());
+        cartRepository.deleteCartItemById(cartId);
     }
 }

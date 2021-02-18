@@ -19,8 +19,6 @@ public class CartController {
 
     @GetMapping()
     public  List<CartDto> getAllCartItems(@RequestHeader("Authorization") String token) {
-        System.out.println("-----------------------------intra in get all cart items");
-        System.out.println("-----------23 " + cartService.getAllCartItems(token));
         return  cartService.getAllCartItems(token);
     }
 
@@ -30,10 +28,11 @@ public class CartController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-//    @DeleteMapping("/{user_id}/{meal_id}")
-//    public void deleteCartItem( @PathVariable("user_id") Long userId, @PathVariable("meal_id") Long mealId) {
-//        userService.removeCartItem(userId, mealId );
-//    }
+    @DeleteMapping("/delete-meal/{id}")
+    public ResponseEntity<Void> deleteCartItem( @PathVariable("id") Long id, @RequestHeader("Authorization") String token) {
+        cartService.removeCartItem(id, token );
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
     //
 //    @GetMapping("/{id}")
