@@ -2,19 +2,19 @@ package com.glovo.ttglovo.prices;
 
 
 import com.glovo.ttglovo.favourite_meal.Favorite;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity(name = "Meal")
 @Table(name = "meal")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Meal {
     @Id
     @SequenceGenerator(
@@ -55,14 +55,20 @@ public class Meal {
         return favorites;
     }
 
-//    public void addUserFavoriteMeal(Favorite favorite) {
-//        if (!favorites.contains(favorite)) {
-//            favorites.add(favorite);
-//        }
-//    }
-//
-//    public void removeUserFavoriteMeal(Favorite favorite) {
-//        favorites.remove(favorite);
-//    }
+    public void addUserFavoriteMeal(Favorite favorite) {
+        favorites.add(favorite);
+    }
+
+    public void removeUserFavoriteMeal(Favorite favorite) {
+        favorites.remove(favorite);
+    }
+
+    @Override
+    public String toString() {
+        return "Meal{" +
+                "id=" + id +
+                ", price=" + price +
+                '}';
+    }
 
 }

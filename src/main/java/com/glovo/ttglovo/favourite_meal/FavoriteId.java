@@ -1,9 +1,7 @@
 package com.glovo.ttglovo.favourite_meal;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -12,9 +10,8 @@ import java.io.Serializable;
 
 
 @Embeddable
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Setter
+@Getter
 public class FavoriteId implements Serializable {
 
     @Column(name = "user_id")
@@ -24,5 +21,7 @@ public class FavoriteId implements Serializable {
     @NotNull
     @Column(name = "meal_id")
     private Long mealId;
+
+
 
 }

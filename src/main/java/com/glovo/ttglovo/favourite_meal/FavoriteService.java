@@ -13,6 +13,11 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+
 @Service
 @AllArgsConstructor
 @Transactional
@@ -48,5 +53,37 @@ public class FavoriteService {
         favorite.setId(favoriteId);
         favoriteRepository.save(favorite);
 
+
+//        user.addUserFavoriteMeal(favorite);
+//
+//        appUserRepository.save(user);
+
+    }
+
+    public List<Long> getAllMeals(String token) {
+
+        AppUser user = getUserFromJwt(token);
+        Set<Favorite> favorites = user.getFavorites();
+        return favorites.stream().map(fav -> fav.getMeal().getId()).collect(Collectors.toList());
+
+    }
+
+
+//    public List<Meal> getAllMeals(String token) {
+//
+//        AppUser user = getUserFromJwt(token);
+//        Set<Favorite> favorites = user.getFavorites();
+//        return favorites.stream().map(fav->fav.getMeal()).collect(Collectors.toList());
+//
+//    }
+
+
+
+
+    public boolean delete(Long id, String token) {
+        AppUser user = getUserFromJwt(token);
+        var favorite = user.getFavorites().stream().filter(fav -> fav.getMeal().getId().equals(id)).collect(Collectors.toList()).get(0);
+        user.removeFavoriteMeal(favorite);
+        return true;
     }
 }
