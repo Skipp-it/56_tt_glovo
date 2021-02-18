@@ -1,23 +1,32 @@
 package com.glovo.ttglovo.prices;
 
 
-import com.glovo.ttglovo.favourite_meal.UserFavMeal;
-import lombok.Getter;
+import com.glovo.ttglovo.favourite_meal.Favorite;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity(name = "Meal")
 @Table(name = "meal")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 public class Meal {
-
     @Id
+    @SequenceGenerator(
+            name = "meal_sequence",
+            sequenceName = "meal_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "meal_sequence"
+    )
+    @Column(name = "id")
     private Long id;
 
     @Column(
@@ -33,7 +42,7 @@ public class Meal {
             cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
             mappedBy = "meal"
     )
-    private List<UserFavMeal> userFavMeals = new ArrayList<>();
+    private Set<Favorite> favorites = new HashSet<>();
 
 
     public Meal(Long id, Integer price) {
@@ -42,26 +51,18 @@ public class Meal {
     }
 
 
-    public List<UserFavMeal> getUserFavMeals() {
-        return userFavMeals;
+    public Set<Favorite> getFavorites() {
+        return favorites;
     }
 
-    public void addUserFavoriteMeal(UserFavMeal userFavMeal) {
-        if (!userFavMeals.contains(userFavMeal)) {
-            userFavMeals.add(userFavMeal);
-        }
-    }
+//    public void addUserFavoriteMeal(Favorite favorite) {
+//        if (!favorites.contains(favorite)) {
+//            favorites.add(favorite);
+//        }
+//    }
+//
+//    public void removeUserFavoriteMeal(Favorite favorite) {
+//        favorites.remove(favorite);
+//    }
 
-    public void removeUserFavoriteMeal(UserFavMeal userFavMeal) {
-        userFavMeals.remove(userFavMeal);
-    }
-
-
-    @Override
-    public String toString() {
-        return "MealPrices{" +
-                "id=" + id +
-                ", price=" + price +
-                '}';
-    }
 }

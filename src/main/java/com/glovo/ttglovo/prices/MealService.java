@@ -22,6 +22,7 @@ public class MealService {
         this.mealRepository = mealRepository;
     }
 
+
     public void addPrice(Meal meal) {
         mealRepository.save(meal);
     }

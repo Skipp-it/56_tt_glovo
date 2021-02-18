@@ -8,10 +8,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserFavDao {
-
-    private Long appUserId;
+public class FavoriteDao {
     private Long mealId;
-
-
 }
