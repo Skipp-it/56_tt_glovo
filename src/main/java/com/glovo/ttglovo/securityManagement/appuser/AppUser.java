@@ -13,16 +13,16 @@ import javax.validation.constraints.NotEmpty;
 import java.util.*;
 
 @Builder
-@Setter
-@Getter
 @AllArgsConstructor
+@Getter
+@Setter
 @NoArgsConstructor
 @Entity(name = "AppUser")
 @Table(name = "user_table",
         uniqueConstraints = {
                 @UniqueConstraint(
                         columnNames = "email",
-                        name = "uk_email"
+                        name = "uk_email_uniq"
                 )
         }
 )
@@ -175,4 +175,16 @@ public class AppUser implements UserDetails {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AppUser user = (AppUser) o;
+        return Objects.equals(id, user.id) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(email, user.email) && Objects.equals(password, user.password) && Objects.equals(favorites, user.favorites) && appUserRole == user.appUserRole && Objects.equals(locked, user.locked) && Objects.equals(enabled, user.enabled) && Objects.equals(cartItems, user.cartItems);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, email, password, favorites, appUserRole, locked, enabled, cartItems);
+    }
 }

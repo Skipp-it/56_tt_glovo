@@ -70,5 +70,4 @@ public class Meal {
                 ", price=" + price +
                 '}';
     }
-
 }
