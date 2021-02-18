@@ -1,37 +1,36 @@
 package com.glovo.ttglovo.favourite_meal;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.glovo.ttglovo.prices.Meal;
 import com.glovo.ttglovo.securityManagement.appuser.AppUser;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
-
 
 @Entity(name = "Favorite")
 @Table(name = "favorite")
-@Data
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class Favorite {
 
     @EmbeddedId
     private FavoriteId id;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("userId")
     @JoinColumn(name = "user_id")
     private AppUser user;
 
-
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("mealId")
     @JoinColumn(name = "meal_id")
     private Meal meal;
-
 
     @Override
     public String toString() {
@@ -39,5 +38,10 @@ public class Favorite {
                 ", user=" + user +
                 ", meal=" + meal +
                 '}';
+    }
+
+    public Favorite(AppUser user, Meal meal) {
+        this.user = user;
+        this.meal = meal;
     }
 }

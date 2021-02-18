@@ -154,16 +154,16 @@ public class AppUser implements UserDetails {
     public Set<Favorite> getFavorites() {
         return favorites;
     }
-//
-//    public void addUserFavoriteMeal(Favorite favorite) {
-//        if (!favorites.contains(favorite)) {
-//            favorites.add(favorite);
-//        }
-//    }
-//
-//    public void removeFavoriteMeal(Favorite favorite) {
-//        favorites.remove(favorite);
-//    }
+
+    public void addUserFavoriteMeal(Favorite favorite) {
+        if (!favorites.contains(favorite)) {
+            favorites.add(favorite);
+        }
+    }
+
+    public void removeFavoriteMeal(Favorite favorite) {
+        favorites.remove(favorite);
+    }
 
 
     @Override
