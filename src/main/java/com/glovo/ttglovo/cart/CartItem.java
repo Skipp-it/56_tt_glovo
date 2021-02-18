@@ -1,5 +1,6 @@
 package com.glovo.ttglovo.cart;
 
+import com.glovo.ttglovo.prices.Meal;
 import com.glovo.ttglovo.securityManagement.appuser.AppUser;
 import lombok.*;
 
@@ -9,40 +10,17 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
 @Entity(name = "CartItem")
 @Table(name = "cart_items")
 public class CartItem {
 
-    @Id
-    @SequenceGenerator(
-            name = "cart_sequence",
-            sequenceName = "cart_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "cart_sequence"
-    )
-    @Column(name = "id", updatable = false, nullable = false)
-    private Long id;
 
-    @Column(name = "meal_id")
-    private Long mealId;
+    @EmbeddedId
+    private CartId id;
 
-    @Column(
-            name = "meal_price",
-            nullable = false,
-            columnDefinition = "Integer")
-    private Integer mealPrice;
-
-    public CartItem(Long mealId, Integer mealPrice, AppUser user) {
-        this.mealId = mealId;
-        this.mealPrice = mealPrice;
-        this.user = user;
-    }
 
     @ManyToOne
+    @MapsId("userId")
     @JoinColumn(
             name = "user_id",
             nullable = false,
@@ -52,6 +30,24 @@ public class CartItem {
             )
     )
     private AppUser user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("mealId")
+    @JoinColumn(
+            name = "meal_id",
+            nullable = false,
+            referencedColumnName = "id",
+            foreignKey = @ForeignKey(
+                    name = "meal_id_fk"
+            )
+    )
+    private Meal meal;
+
+    @Column(
+            name = "qty",
+            nullable = false,
+            columnDefinition = "Integer")
+    private Integer quantity;
 
 
 }
