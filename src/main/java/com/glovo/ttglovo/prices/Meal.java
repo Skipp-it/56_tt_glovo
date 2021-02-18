@@ -5,6 +5,7 @@ import com.glovo.ttglovo.favourite_meal.Favorite;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -55,9 +56,7 @@ public class Meal {
     }
 
     public void addUserFavoriteMeal(Favorite favorite) {
-        if (!favorites.contains(favorite)) {
-            favorites.add(favorite);
-        }
+        favorites.add(favorite);
     }
 
     public void removeUserFavoriteMeal(Favorite favorite) {

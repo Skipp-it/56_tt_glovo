@@ -3,7 +3,6 @@ package com.glovo.ttglovo.favourite_meal;
 
 import com.glovo.ttglovo.exceptions.FavoriteMealNotFoundException;
 import com.glovo.ttglovo.prices.Meal;
-import com.glovo.ttglovo.prices.MealDao;
 import com.glovo.ttglovo.prices.MealRepository;
 import com.glovo.ttglovo.securityManagement.appuser.AppUser;
 import com.glovo.ttglovo.securityManagement.appuser.AppUserRepository;
@@ -17,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 @Service
 @AllArgsConstructor
@@ -61,13 +60,25 @@ public class FavoriteService {
 
     }
 
-    public List<Meal> getAllMeals(String token) {
+    public List<Long> getAllMeals(String token) {
 
         AppUser user = getUserFromJwt(token);
         Set<Favorite> favorites = user.getFavorites();
-        return favorites.stream().map(Favorite::getMeal).collect(Collectors.toList());
+        return favorites.stream().map(fav -> fav.getMeal().getId()).collect(Collectors.toList());
 
     }
+
+
+//    public List<Meal> getAllMeals(String token) {
+//
+//        AppUser user = getUserFromJwt(token);
+//        Set<Favorite> favorites = user.getFavorites();
+//        return favorites.stream().map(fav->fav.getMeal()).collect(Collectors.toList());
+//
+//    }
+
+
+
 
     public boolean delete(Long id, String token) {
         AppUser user = getUserFromJwt(token);

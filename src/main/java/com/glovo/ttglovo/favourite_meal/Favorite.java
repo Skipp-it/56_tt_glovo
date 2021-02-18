@@ -8,7 +8,6 @@ import lombok.*;
 
 import javax.persistence.*;
 
-
 @Entity(name = "Favorite")
 @Table(name = "favorite")
 @Setter
