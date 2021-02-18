@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/favoriteMeal")
+@RequestMapping("/favorite")
 @AllArgsConstructor
 @CrossOrigin(origins = "http://localhost:3000")
 public class FavoriteController {
@@ -17,7 +17,6 @@ public class FavoriteController {
     @PostMapping("/addMeal")
     public ResponseEntity<Void> addFavMeal(@RequestBody FavoriteDao favoriteDao, @RequestHeader("Authorization") String token) {
         favoriteService.addFavMeal(favoriteDao, token);
-
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 

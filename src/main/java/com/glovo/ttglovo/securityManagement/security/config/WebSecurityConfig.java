@@ -33,16 +33,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
                 .httpBasic().disable()
-//                .cors().and() //
+                .cors().and()
                 .csrf().disable() //for form base security : enable!
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/favoriteMeal/**").authenticated()
+                .antMatchers("/favorite/**").authenticated()
                 .antMatchers("/admin/**").hasAuthority("ADMIN")
                 .antMatchers("/login", "/register/**").permitAll()
-                .antMatchers("/meals/**", "/prices").permitAll()
-                .antMatchers("/favorites").authenticated()
+                .antMatchers("/meals/**").permitAll()
+                .antMatchers("/prices/**").permitAll()
                 .antMatchers("/client").authenticated()
                 .anyRequest().denyAll()
                 .and()

@@ -48,5 +48,10 @@ public class FavoriteService {
         favorite.setId(favoriteId);
         favoriteRepository.save(favorite);
 
+
+//        user.addUserFavoriteMeal(favorite);
+//
+//        appUserRepository.save(user);
+
     }
 }

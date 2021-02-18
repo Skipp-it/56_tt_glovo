@@ -1,6 +1,9 @@
 package com.glovo.ttglovo.prices;
 
 
+import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -8,24 +11,26 @@ import java.util.List;
 @RestController
 @RequestMapping("/prices")
 @CrossOrigin(origins = "http://localhost:3000")
+@AllArgsConstructor
 public class MealController {
 
     private final MealService mealService;
 
 
-    public MealController(MealService mealService) {
-        this.mealService = mealService;
-    }
-
     @PostMapping()
     public void addPrice(@RequestBody Meal meal) {
-        System.out.println(meal);
         mealService.addPrice(meal);
     }
 
     @GetMapping()
-    public List<Meal> getAllMealPrices() {
-        return mealService.getAllMealPrices();
+    public ResponseEntity<List<Meal>> getAllMealPrices() {
+        List<Meal> allMealPrices = mealService.getAllMealPrices();
+        return  ResponseEntity.status(HttpStatus.OK).body(allMealPrices);
+    }
+
+    @GetMapping("{id}")
+    public void getById(@PathVariable Long id) {
+        mealService.getById(id);
     }
 
 }
