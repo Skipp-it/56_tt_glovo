@@ -48,6 +48,5 @@ public class FavoriteService {
         favorite.setId(favoriteId);
         favoriteRepository.save(favorite);
 
-
     }
 }
