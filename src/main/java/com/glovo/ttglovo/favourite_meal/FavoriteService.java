@@ -3,6 +3,7 @@ package com.glovo.ttglovo.favourite_meal;
 
 import com.glovo.ttglovo.exceptions.FavoriteMealNotFoundException;
 import com.glovo.ttglovo.prices.Meal;
+import com.glovo.ttglovo.prices.MealDao;
 import com.glovo.ttglovo.prices.MealRepository;
 import com.glovo.ttglovo.securityManagement.appuser.AppUser;
 import com.glovo.ttglovo.securityManagement.appuser.AppUserRepository;
@@ -12,6 +13,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 @AllArgsConstructor
@@ -53,5 +59,20 @@ public class FavoriteService {
 //
 //        appUserRepository.save(user);
 
+    }
+
+    public List<Long> getAllMeals(String token) {
+
+        AppUser user = getUserFromJwt(token);
+        Set<Favorite> favorites = user.getFavorites();
+        return favorites.stream().map(fav -> fav.getMeal().getId()).collect(Collectors.toList());
+
+    }
+
+    public boolean delete(Long id, String token) {
+        AppUser user = getUserFromJwt(token);
+        var favorite = user.getFavorites().stream().filter(fav -> fav.getMeal().getId().equals(id)).collect(Collectors.toList()).get(0);
+        user.removeFavoriteMeal(favorite);
+        return true;
     }
 }
