@@ -37,13 +37,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable() //for form base security : enable!
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                    .authorizeRequests()
-                        .antMatchers("/admin/**").hasAuthority("ADMIN")
-                        .antMatchers("/login", "/register/**").permitAll()
-                        .antMatchers("/meals/**", "/prices").permitAll()
-                        .antMatchers("/favorites").authenticated()
-                        .antMatchers( "/client").authenticated()
-                        .anyRequest().denyAll()
+                .authorizeRequests()
+                .antMatchers("/favoriteMeal/**").authenticated()
+                .antMatchers("/admin/**").hasAuthority("ADMIN")
+                .antMatchers("/login", "/register/**").permitAll()
+                .antMatchers("/meals/**", "/prices").permitAll()
+                .antMatchers("/favorites").authenticated()
+                .antMatchers("/client").authenticated()
+                .anyRequest().denyAll()
                 .and()
                 .addFilterBefore(new JwtTokenFilter(jwtTokenServices), UsernamePasswordAuthenticationFilter.class);
     }

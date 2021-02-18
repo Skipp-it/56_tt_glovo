@@ -1,6 +1,7 @@
 package com.glovo.ttglovo.securityManagement.appuser;
 
 import com.glovo.ttglovo.cart.CartItem;
+import com.glovo.ttglovo.favourite_meal.Favorite;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -12,8 +13,7 @@ import javax.validation.constraints.NotEmpty;
 import java.util.*;
 
 @Builder
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "AppUser")
@@ -72,7 +72,13 @@ public class AppUser implements UserDetails {
     )
     private String password;
 
-// no username, only first name
+    @OneToMany(
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+            mappedBy = "user",
+            orphanRemoval = true,
+            fetch = FetchType.LAZY
+    )
+    private Set<Favorite> favorites = new HashSet<>();
 
     @Column(
             name = "app_user_role",
@@ -156,17 +162,28 @@ public class AppUser implements UserDetails {
         return Objects.hash(id, firstName, lastName, email, password, appUserRole, locked, enabled);
     }
 
+
+    public Set<Favorite> getFavorites() {
+        return favorites;
+    }
+//
+//    public void addUserFavoriteMeal(Favorite favorite) {
+//        if (!favorites.contains(favorite)) {
+//            favorites.add(favorite);
+//        }
+//    }
+//
+//    public void removeFavoriteMeal(Favorite favorite) {
+//        favorites.remove(favorite);
+//    }
+
+
     @Override
     public String toString() {
         return "AppUser{" +
-                "id=" + id +
-                ", name='" + firstName + '\'' +
-                ", username='" + lastName + '\'' +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", appUserRole=" + appUserRole +
-                ", locked=" + locked +
-                ", enabled=" + enabled +
                 '}';
     }
 }
