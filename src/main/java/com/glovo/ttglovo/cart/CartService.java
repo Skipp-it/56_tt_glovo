@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -28,11 +29,11 @@ public class CartService {
     }
 
     @Transactional
-    public void addCartItem(CartDao cartDao, String token) {
+    public void addCartItem(CartDto cartDto, String token) {
 
         AppUser user = getUserFromJwt(token);
-        Meal meal = mealRepository.findById(cartDao.getMealId()).orElseThrow(() ->
-                new CartItemNotFoundException(String.format("cart with id %s not found", cartDao.getMealId())));
+        Meal meal = mealRepository.findById(cartDto.getMealId()).orElseThrow(() ->
+                new CartItemNotFoundException(String.format("cart with id %s not found", cartDto.getMealId())));
         CartId cartId = new CartId();
         cartId.setMealId(meal.getId());
         cartId.setUserId(user.getId());
@@ -41,16 +42,23 @@ public class CartService {
                 cartId,
                 user,
                 meal,
-                cartDao.getQuantity()
+                cartDto.getQuantity(),
+                cartDto.getPrice()
         );
         cartRepository.save(cartItem);
     }
 
-    public List<CartItem> getAllCartItems(String token) {
+    public List<CartDto> getAllCartItems(String token) {
         Long userId = getUserFromJwt(token).getId();
         System.out.println("-------in cart service 50");
-        System.out.println(userId);
         System.out.println( cartRepository.findAllCartItemsByUserId(userId).toString());
-        return cartRepository.findAllCartItemsByUserId(userId);
+        return transformToDto(cartRepository.findAllCartItemsByUserId(userId));
+    }
+
+    private List<CartDto> transformToDto(List<CartItem> cartItems){
+        return cartItems.
+                stream()
+                .map(item -> new CartDto(item.getId().getMealId(), item.getQuantity(), item.getClientSeenPrice()))
+                .collect(Collectors.toList());
     }
 }

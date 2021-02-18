@@ -53,6 +53,14 @@ public class CartItem {
             columnDefinition = "Integer")
     private Integer quantity;
 
+    @Column(
+            name = "price",
+            nullable = false,
+            columnDefinition = "Integer",
+            updatable = false
+    )
+    private Integer clientSeenPrice;
+
 
 }
 

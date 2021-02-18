@@ -18,14 +18,15 @@ public class CartController {
 
 
     @GetMapping()
-    public  List<CartItem> getAllCartItems(@RequestHeader("Authorization") String token) {
+    public  List<CartDto> getAllCartItems(@RequestHeader("Authorization") String token) {
         System.out.println("-----------------------------intra in get all cart items");
+        System.out.println("-----------23 " + cartService.getAllCartItems(token));
         return  cartService.getAllCartItems(token);
     }
 
     @PostMapping("/add-meal")
-    public ResponseEntity<Void> addNewCartProduct(@RequestBody @NotNull CartDao cartDao, @RequestHeader("Authorization") String token) {
-        cartService.addCartItem(cartDao, token);
+    public ResponseEntity<Void> addNewCartProduct(@RequestBody @NotNull CartDto cartDto, @RequestHeader("Authorization") String token) {
+        cartService.addCartItem(cartDto, token);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
