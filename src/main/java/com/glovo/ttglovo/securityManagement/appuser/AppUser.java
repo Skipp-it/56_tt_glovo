@@ -1,6 +1,7 @@
 package com.glovo.ttglovo.securityManagement.appuser;
 
 import com.glovo.ttglovo.cart.CartItem;
+import com.glovo.ttglovo.recipe.RecipeItem;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -94,6 +95,14 @@ public class AppUser implements UserDetails {
     )
     private List<CartItem> cartItems = new ArrayList<>();
 
+    @OneToMany(
+            mappedBy = "user",
+            orphanRemoval = true,
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+            fetch = FetchType.LAZY
+    )
+    private List<RecipeItem> recipeItems = new ArrayList<>();
+
     public AppUser(String firstName,
                    String lastName,
                    String email,
@@ -154,6 +163,10 @@ public class AppUser implements UserDetails {
     @Override
     public int hashCode() {
         return Objects.hash(id, firstName, lastName, email, password, appUserRole, locked, enabled);
+    }
+
+    public void addRecipeItem(RecipeItem recipeItem){
+        recipeItems.add(recipeItem);
     }
 
     @Override

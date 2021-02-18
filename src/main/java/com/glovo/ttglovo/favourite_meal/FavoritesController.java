@@ -19,6 +19,7 @@ public class FavoritesController {
 
     @PostMapping()
     public void addNewFavoriteProduct(@RequestBody @NotNull FavoriteMeal favoriteMeal) {
+        System.out.println("FAVORITE "+favoriteMeal);
         favoritesService.saveFavorites(favoriteMeal);
     }
 

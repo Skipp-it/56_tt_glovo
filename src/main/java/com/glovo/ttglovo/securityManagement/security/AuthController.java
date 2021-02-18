@@ -44,10 +44,11 @@ public class AuthController {
                     .collect(Collectors.toList());
 
             String name = ((AppUser) appUserService.loadUserByUsername(email)).getFirstName();
+            Long id=((AppUser) appUserService.loadUserByUsername(email)).getId();
 
             String token = jwtTokenServices.createToken(email, roles);
             Map<Object, Object> model = new HashMap<>();
-            model.put("email", email); // TODO de scos email
+            model.put("id",id);
             model.put("name", name);
             model.put("roles", roles);
             model.put("token", token);
