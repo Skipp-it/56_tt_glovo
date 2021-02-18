@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @RestController
 @AllArgsConstructor
@@ -15,14 +16,15 @@ public class CartController {
 
     private final CartService cartService;
 
-//    @GetMapping("/{user-id}")
-//    public List<CartItem> getAllCartItems(@PathVariable("user-id") Long userId) {
-//        return userService.getAllCartItems(userId);
-//    }
+
+    @GetMapping()
+    public  List<CartItem> getAllCartItems(@RequestHeader("Authorization") String token) {
+        System.out.println("-----------------------------intra in get all cart items");
+        return  cartService.getAllCartItems(token);
+    }
 
     @PostMapping("/add-meal")
     public ResponseEntity<Void> addNewCartProduct(@RequestBody @NotNull CartDao cartDao, @RequestHeader("Authorization") String token) {
-        System.out.println("--------------------intra in 26 cart controller");
         cartService.addCartItem(cartDao, token);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }

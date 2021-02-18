@@ -1,8 +1,10 @@
 package com.glovo.ttglovo.cart;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.glovo.ttglovo.prices.Meal;
 import com.glovo.ttglovo.securityManagement.appuser.AppUser;
 import lombok.*;
+
 
 import javax.persistence.*;
 
@@ -20,6 +22,7 @@ public class CartItem {
 
 
     @ManyToOne
+    @JsonIgnore
     @MapsId("userId")
     @JoinColumn(
             name = "user_id",
@@ -32,6 +35,7 @@ public class CartItem {
     private AppUser user;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     @MapsId("mealId")
     @JoinColumn(
             name = "meal_id",

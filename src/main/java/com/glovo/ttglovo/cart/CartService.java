@@ -11,6 +11,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class CartService {
@@ -27,10 +29,10 @@ public class CartService {
 
     @Transactional
     public void addCartItem(CartDao cartDao, String token) {
+
         AppUser user = getUserFromJwt(token);
         Meal meal = mealRepository.findById(cartDao.getMealId()).orElseThrow(() ->
                 new CartItemNotFoundException(String.format("cart with id %s not found", cartDao.getMealId())));
-
         CartId cartId = new CartId();
         cartId.setMealId(meal.getId());
         cartId.setUserId(user.getId());
@@ -42,18 +44,13 @@ public class CartService {
                 cartDao.getQuantity()
         );
         cartRepository.save(cartItem);
+    }
 
-
+    public List<CartItem> getAllCartItems(String token) {
+        Long userId = getUserFromJwt(token).getId();
+        System.out.println("-------in cart service 50");
+        System.out.println(userId);
+        System.out.println( cartRepository.findAllCartItemsByUserId(userId).toString());
+        return cartRepository.findAllCartItemsByUserId(userId);
     }
 }
-
-//
-//    FavoriteId favoriteId = new FavoriteId();
-//        favoriteId.setUserId(user.getId());
-//                favoriteId.setMealId(meal.getId());//
-
-//    Favorite favorite = new Favorite();
-//        favorite.setMeal(meal);
-//                favorite.setUser(user);
-//                favorite.setId(favoriteId);
-//                favoriteRepository.save(favorite);
