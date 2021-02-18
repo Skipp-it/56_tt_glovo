@@ -61,11 +61,11 @@ public class FavoriteService {
 
     }
 
-    public List<Long> getAllMeals(String token) {
+    public List<Meal> getAllMeals(String token) {
 
         AppUser user = getUserFromJwt(token);
         Set<Favorite> favorites = user.getFavorites();
-        return favorites.stream().map(fav -> fav.getMeal().getId()).collect(Collectors.toList());
+        return favorites.stream().map(Favorite::getMeal).collect(Collectors.toList());
 
     }
 

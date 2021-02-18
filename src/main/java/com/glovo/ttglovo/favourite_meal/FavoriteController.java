@@ -24,8 +24,8 @@ public class FavoriteController {
     }
 
     @GetMapping()
-    public ResponseEntity<List<Long>> getFavMeals(@RequestHeader("Authorization") String token) {
-        List<Long> allMeals = favoriteService.getAllMeals(token);
+    public ResponseEntity<List<Meal>> getFavMeals(@RequestHeader("Authorization") String token) {
+        List<Meal> allMeals = favoriteService.getAllMeals(token);
         return ResponseEntity.status(HttpStatus.OK).body(allMeals);
     }
 
