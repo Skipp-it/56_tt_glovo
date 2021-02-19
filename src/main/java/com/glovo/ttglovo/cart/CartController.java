@@ -24,9 +24,7 @@ public class CartController {
 
     @PostMapping("/add-meal")
     public ResponseEntity<Void> addNewCartProduct(@RequestBody @NotNull CartDto cartDto, @RequestHeader("Authorization") String token) {
-        System.out.println( "________________intra");
         cartService.addCartItem(cartDto, token);
-        System.out.println( "________________iese");
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
