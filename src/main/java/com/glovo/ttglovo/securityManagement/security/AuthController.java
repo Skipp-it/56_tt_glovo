@@ -52,7 +52,7 @@ public class AuthController {
             model.put("name", name);
             model.put("roles", roles);
             model.put("token", token);
-
+            System.out.println("Token "+token);
 //            //add token to cookie
 //            Cookie cookie = new Cookie("token", token);
 //            cookie.setMaxAge(100);

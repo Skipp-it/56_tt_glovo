@@ -2,6 +2,7 @@ package com.glovo.ttglovo.securityManagement.appuser;
 
 import com.glovo.ttglovo.cart.CartItem;
 import com.glovo.ttglovo.favourite_meal.Favorite;
+import com.glovo.ttglovo.recipe.RecipeItem;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

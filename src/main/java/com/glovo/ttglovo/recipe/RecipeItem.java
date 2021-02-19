@@ -2,10 +2,13 @@ package com.glovo.ttglovo.recipe;
 
 import com.glovo.ttglovo.securityManagement.appuser.AppUser;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
-@Data
+@Getter
+@Setter
 @Entity(name="RecipeModel")
 @Table(name="recipe")
 public class RecipeItem {
@@ -23,10 +26,10 @@ public class RecipeItem {
     @Column(name = "id", updatable = false, nullable = false)
     private Long id;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name")
     private String name;
 
-    @Column(name="description", nullable = false)
+    @Column(name="description")
     private String description;
 
     @ManyToOne
