@@ -14,16 +14,16 @@ import javax.validation.constraints.NotEmpty;
 import java.util.*;
 
 @Builder
+@AllArgsConstructor
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "AppUser")
 @Table(name = "user_table",
         uniqueConstraints = {
                 @UniqueConstraint(
                         columnNames = "email",
-                        name = "uk_email"
+                        name = "uk_email_uniq"
                 )
         }
 )
@@ -159,33 +159,20 @@ public class AppUser implements UserDetails {
         return enabled;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        AppUser appUser = (AppUser) o;
-        return Objects.equals(id, appUser.id) && Objects.equals(firstName, appUser.firstName) && Objects.equals(lastName, appUser.lastName) && Objects.equals(email, appUser.email) && Objects.equals(password, appUser.password) && appUserRole == appUser.appUserRole && Objects.equals(locked, appUser.locked) && Objects.equals(enabled, appUser.enabled);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, firstName, lastName, email, password, appUserRole, locked, enabled);
-    }
-
 
     public Set<Favorite> getFavorites() {
         return favorites;
     }
-//
-//    public void addUserFavoriteMeal(Favorite favorite) {
-//        if (!favorites.contains(favorite)) {
-//            favorites.add(favorite);
-//        }
-//    }
-//
-//    public void removeFavoriteMeal(Favorite favorite) {
-//        favorites.remove(favorite);
-//    }
+
+    public void addUserFavoriteMeal(Favorite favorite) {
+        if (!favorites.contains(favorite)) {
+            favorites.add(favorite);
+        }
+    }
+
+    public void removeFavoriteMeal(Favorite favorite) {
+        favorites.remove(favorite);
+    }
 
 
     public void addRecipeItem(RecipeItem recipeItem){
@@ -203,5 +190,18 @@ public class AppUser implements UserDetails {
                 ", locked=" + locked +
                 ", enabled=" + enabled +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AppUser user = (AppUser) o;
+        return Objects.equals(id, user.id) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(email, user.email) && Objects.equals(password, user.password) && Objects.equals(favorites, user.favorites) && appUserRole == user.appUserRole && Objects.equals(locked, user.locked) && Objects.equals(enabled, user.enabled) && Objects.equals(cartItems, user.cartItems);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, email, password, favorites, appUserRole, locked, enabled, cartItems);
     }
 }

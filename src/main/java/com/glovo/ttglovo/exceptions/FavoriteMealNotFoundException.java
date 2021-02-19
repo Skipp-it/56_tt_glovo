@@ -4,3 +4,6 @@ public class FavoriteMealNotFoundException extends RuntimeException {
     public FavoriteMealNotFoundException(String message) {
     }
 }
+
+
+

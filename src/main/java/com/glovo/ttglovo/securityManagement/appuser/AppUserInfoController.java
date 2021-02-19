@@ -20,7 +20,9 @@ public class AppUserInfoController {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         AppUser user = (AppUser) appUserService.loadUserByUsername((String) authentication.getPrincipal());
-        return user.getUsername() + "\n" + user.getAppUserRole();
+
+        String response = user.getUsername() + "\n" + user.getAppUserRole();
+        return response;
     }
 }
 
