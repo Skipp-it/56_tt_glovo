@@ -32,6 +32,9 @@ public class FavoriteService {
     private final MealMapper mealMapper;
 
 
+    private AppUser getAppUser(String principal) {
+        return appUserRepository.findByEmail(principal).orElseThrow(() -> new UsernameNotFoundException(String.format("user with email=%s not found", principal)));
+    }
     @Transactional
     public void addFavMeal(FavoriteDto favoriteDto, String principal) {
         AppUser user = getAppUser(principal);
@@ -55,40 +58,38 @@ public class FavoriteService {
 
     }
 
-    private AppUser getAppUser(String principal) {
-        return appUserRepository.findByEmail(principal).orElseThrow(() -> new UsernameNotFoundException(String.format("user with email=%s not found", principal)));
-    }
 
-    @Transactional(readOnly = true)
-    public Set<MealDto> getAllMeals(String principal) {
-        AppUser user = getAppUser(principal);
-        Set<MealDto> mealDtos = new HashSet<>();
-        Set<Favorite> favorites = user.getFavorites();
-
-        for (Favorite favorite : favorites) {
-            MealDto mealDto = new MealDto();
-            mealDto.setMealId(favorite.getMeal().getId());
-            mealDto.setPrice(favorite.getMeal().getPrice());
-            mealDtos.add(mealDto);
-        }
-
-        return mealDtos;
-
-    }
-
-//    public Set<MealDto> getAllMealss(String principal){
+//    @Transactional(readOnly = true)
+//    public Set<MealDto> getAllMeals(String principal) {
 //        AppUser user = getAppUser(principal);
-//        return user.getFavorites()
-//                .stream()
-//                .map(mealMapper::mealToMealDto)
-//                .collect(toSet());
+//        Set<MealDto> mealDtos = new HashSet<>();
+//        Set<Favorite> favorites = user.getFavorites();
+//
+//        for (Favorite favorite : favorites) {
+//            MealDto mealDto = new MealDto();
+//            mealDto.setMealId(favorite.getMeal().getId());
+//            mealDto.setPrice(favorite.getMeal().getPrice());
+//            mealDtos.add(mealDto);
+//        }
+//
+//        return mealDtos;
+//
 //    }
+    @Transactional(readOnly = true)
+    public Set<MealDto> getAllMeals(String principal){
+        AppUser user = getAppUser(principal);
+        return user.getFavorites()
+                .stream()
+                .map(mealMapper::mealToMealDto)
+                .collect(toSet());
+    }
 
 
     @Transactional
     public boolean delete(Long id, String principal) {
         AppUser user = getAppUser(principal);
-        Favorite favorite = user.getFavorites().stream().filter(fav -> fav.getMeal().getId().equals(id)).collect(toList()).get(0);
+        Favorite favorite = user.getFavorites().stream().filter(fav -> fav.getMeal().getId().equals(id)).findFirst()
+                .orElseThrow(()->new FavoriteMealNotFoundException(String.format("favorite with id=%s not found", id)));
         user.removeFavoriteMeal(favorite);
         return true;
     }
