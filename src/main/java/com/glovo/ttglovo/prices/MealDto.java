@@ -3,12 +3,12 @@ package com.glovo.ttglovo.prices;
 
 import lombok.*;
 
-@Getter
-@Setter
-@ToString
+
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class MealDao {
+@Builder
+public class MealDto {
     private Long mealId;
-    private Long price;
+    private Integer price;
 }

@@ -8,6 +8,7 @@ import lombok.*;
 
 import javax.persistence.*;
 
+
 @Entity(name = "Favorite")
 @Table(name = "favorite")
 @Setter
@@ -32,16 +33,10 @@ public class Favorite {
     @JoinColumn(name = "meal_id")
     private Meal meal;
 
-    @Override
-    public String toString() {
-        return "Favorite{" +
-                ", user=" + user +
-                ", meal=" + meal +
-                '}';
-    }
 
     public Favorite(AppUser user, Meal meal) {
         this.user = user;
         this.meal = meal;
     }
+
 }

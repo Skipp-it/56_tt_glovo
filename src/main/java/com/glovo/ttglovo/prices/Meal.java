@@ -2,10 +2,12 @@ package com.glovo.ttglovo.prices;
 
 
 import com.glovo.ttglovo.favourite_meal.Favorite;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,6 +18,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Meal {
+
     @Id
     @SequenceGenerator(
             name = "meal_sequence",

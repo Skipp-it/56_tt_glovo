@@ -1,5 +1,6 @@
 package com.glovo.ttglovo.prices;
 
+import com.glovo.ttglovo.exceptions.FavoriteMealNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +16,9 @@ public class MealService {
         return mealRepository.findAll();
     }
 
-    public Meal getById(Long id) {
-        return mealRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("nu merge"));
+    public Integer getById(Long id) {
+        Meal meal = mealRepository.findById(id).orElseThrow(() -> new FavoriteMealNotFoundException(String.format("Meal with the id=%s not found", id)));
+        return meal.getPrice();
     }
 
     public void addPrice(Meal meal) {

@@ -25,12 +25,13 @@ public class MealController {
     @GetMapping()
     public ResponseEntity<List<Meal>> getAllMealPrices() {
         List<Meal> allMealPrices = mealService.getAllMealPrices();
-        return  ResponseEntity.status(HttpStatus.OK).body(allMealPrices);
+        return ResponseEntity.status(HttpStatus.OK).body(allMealPrices);
     }
 
     @GetMapping("{id}")
-    public void getById(@PathVariable Long id) {
-        mealService.getById(id);
+    public ResponseEntity<Integer> mealPrice(@PathVariable Long id) {
+        Integer mealPrice = mealService.getById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(mealPrice);
     }
 
 }
