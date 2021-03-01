@@ -1,4 +1,4 @@
-package com.glovo.ttglovo.prices;
+package com.glovo.ttglovo.Meal;
 
 
 import lombok.*;
@@ -10,8 +10,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MealDto {
-    private  Long mealId;
-    private  Integer price;
-
-
+    private Long idMeal;
+    private Integer price;
 }

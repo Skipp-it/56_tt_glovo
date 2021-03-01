@@ -1,11 +1,11 @@
 package com.glovo.ttglovo.favourite_meal;
 
 
+import com.glovo.ttglovo.Meal.Meal;
+import com.glovo.ttglovo.Meal.MealDto;
+import com.glovo.ttglovo.Meal.MealMapper;
+import com.glovo.ttglovo.Meal.MealRepository;
 import com.glovo.ttglovo.exceptions.FavoriteMealNotFoundException;
-import com.glovo.ttglovo.prices.Meal;
-import com.glovo.ttglovo.prices.MealDto;
-import com.glovo.ttglovo.prices.MealMapper;
-import com.glovo.ttglovo.prices.MealRepository;
 import com.glovo.ttglovo.securityManagement.appuser.AppUser;
 import com.glovo.ttglovo.securityManagement.appuser.AppUserRepository;
 import lombok.AllArgsConstructor;
@@ -14,10 +14,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashSet;
+import java.time.LocalDateTime;
 import java.util.Set;
 
-import static java.util.stream.Collectors.*;
+import static java.util.stream.Collectors.toSet;
 
 
 @Service
@@ -49,6 +49,7 @@ public class FavoriteService {
         favorite.setMeal(meal);
         favorite.setUser(user);
         favorite.setId(favoriteId);
+        favorite.setCreatedAt(LocalDateTime.now());
         favoriteRepository.save(favorite);
 
 
@@ -59,22 +60,6 @@ public class FavoriteService {
     }
 
 
-//    @Transactional(readOnly = true)
-//    public Set<MealDto> getAllMeals(String principal) {
-//        AppUser user = getAppUser(principal);
-//        Set<MealDto> mealDtos = new HashSet<>();
-//        Set<Favorite> favorites = user.getFavorites();
-//
-//        for (Favorite favorite : favorites) {
-//            MealDto mealDto = new MealDto();
-//            mealDto.setMealId(favorite.getMeal().getId());
-//            mealDto.setPrice(favorite.getMeal().getPrice());
-//            mealDtos.add(mealDto);
-//        }
-//
-//        return mealDtos;
-//
-//    }
     @Transactional(readOnly = true)
     public Set<MealDto> getAllMeals(String principal){
         AppUser user = getAppUser(principal);

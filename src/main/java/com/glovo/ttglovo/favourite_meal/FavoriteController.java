@@ -1,7 +1,7 @@
 package com.glovo.ttglovo.favourite_meal;
 
 
-import com.glovo.ttglovo.prices.MealDto;
+import com.glovo.ttglovo.Meal.MealDto;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

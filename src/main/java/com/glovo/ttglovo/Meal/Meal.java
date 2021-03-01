@@ -1,4 +1,4 @@
-package com.glovo.ttglovo.prices;
+package com.glovo.ttglovo.Meal;
 
 
 import com.glovo.ttglovo.favourite_meal.Favorite;

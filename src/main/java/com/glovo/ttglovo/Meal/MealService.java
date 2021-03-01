@@ -1,19 +1,24 @@
-package com.glovo.ttglovo.prices;
+package com.glovo.ttglovo.Meal;
 
 import com.glovo.ttglovo.exceptions.FavoriteMealNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
 public class MealService {
 
     private final MealRepository mealRepository;
+    private final MealMapper mealMapper;
 
-    public List<Meal> getAllMealPrices() {
-        return mealRepository.findAll();
+    public Set<MealDto> getAllMealPrices() {
+        return mealRepository.findAll().stream()
+                .map(mealMapper::mealToDto)
+                .collect(Collectors.toSet());
     }
 
     public Integer getById(Long id) {

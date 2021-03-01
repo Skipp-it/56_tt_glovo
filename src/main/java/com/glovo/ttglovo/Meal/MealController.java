@@ -1,4 +1,4 @@
-package com.glovo.ttglovo.prices;
+package com.glovo.ttglovo.Meal;
 
 
 import lombok.AllArgsConstructor;
@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/prices")
@@ -23,8 +24,8 @@ public class MealController {
     }
 
     @GetMapping()
-    public ResponseEntity<List<Meal>> getAllMealPrices() {
-        List<Meal> allMealPrices = mealService.getAllMealPrices();
+    public ResponseEntity<Set<MealDto>> getAllMealPrices() {
+        Set<MealDto> allMealPrices = mealService.getAllMealPrices();
         return ResponseEntity.status(HttpStatus.OK).body(allMealPrices);
     }
 
