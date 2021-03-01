@@ -1,4 +1,4 @@
-package com.glovo.ttglovo.prices;
+package com.glovo.ttglovo.Meal;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -14,4 +14,6 @@ public interface MealRepository extends JpaRepository<Meal, Long> {
 
     List<Meal> findAll();
 
+
+//    Set<Meal> findAllByUser(AppUser user);
 }
