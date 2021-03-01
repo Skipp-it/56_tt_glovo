@@ -1,47 +1,45 @@
 package com.glovo.ttglovo.favourite_meal;
 
 
+import com.glovo.ttglovo.Meal.Meal;
+import com.glovo.ttglovo.Meal.MealDto;
+import com.glovo.ttglovo.Meal.MealMapper;
+import com.glovo.ttglovo.Meal.MealRepository;
 import com.glovo.ttglovo.exceptions.FavoriteMealNotFoundException;
-import com.glovo.ttglovo.prices.Meal;
-import com.glovo.ttglovo.prices.MealRepository;
 import com.glovo.ttglovo.securityManagement.appuser.AppUser;
 import com.glovo.ttglovo.securityManagement.appuser.AppUserRepository;
-import com.glovo.ttglovo.securityManagement.security.jwt.JwtTokenServices;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import java.time.LocalDateTime;
 import java.util.Set;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toSet;
 
 
 @Service
 @AllArgsConstructor
-@Transactional
 @Slf4j
 public class FavoriteService {
 
 
     private final MealRepository mealRepository;
     private final AppUserRepository appUserRepository;
-    private final JwtTokenServices jwtTokenServices;
     private final FavoriteRepository favoriteRepository;
+    private final MealMapper mealMapper;
 
 
-    private AppUser getUserFromJwt(String token) {
-        String email = (String) jwtTokenServices.parseUserFromTokenInfo(token.substring(7)).getPrincipal();
-        return appUserRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException(String.format("user with email=%s not found", email)));
-
+    private AppUser getAppUser(String principal) {
+        return appUserRepository.findByEmail(principal).orElseThrow(() -> new UsernameNotFoundException(String.format("user with email=%s not found", principal)));
     }
-
     @Transactional
-    public void addFavMeal(FavoriteDao favoriteDao, String token) {
-        AppUser user = getUserFromJwt(token);
-        Meal meal = mealRepository.findById(favoriteDao.getMealId()).orElseThrow(() ->
-                new FavoriteMealNotFoundException(String.format("meal with id=%s not found", favoriteDao.getMealId())));
+    public void addFavMeal(FavoriteDto favoriteDto, String principal) {
+        AppUser user = getAppUser(principal);
+        Meal meal = mealRepository.findById(favoriteDto.getMealId()).orElseThrow(() ->
+                new FavoriteMealNotFoundException(String.format("meal with id=%s not found", favoriteDto.getMealId())));
 
         FavoriteId favoriteId = new FavoriteId();
         favoriteId.setUserId(user.getId());
@@ -51,6 +49,7 @@ public class FavoriteService {
         favorite.setMeal(meal);
         favorite.setUser(user);
         favorite.setId(favoriteId);
+        favorite.setCreatedAt(LocalDateTime.now());
         favoriteRepository.save(favorite);
 
 
@@ -60,29 +59,22 @@ public class FavoriteService {
 
     }
 
-    public List<Long> getAllMeals(String token) {
 
-        AppUser user = getUserFromJwt(token);
-        Set<Favorite> favorites = user.getFavorites();
-        return favorites.stream().map(fav -> fav.getMeal().getId()).collect(Collectors.toList());
-
+    @Transactional(readOnly = true)
+    public Set<MealDto> getAllMeals(String principal){
+        AppUser user = getAppUser(principal);
+        return user.getFavorites()
+                .stream()
+                .map(mealMapper::mealToMealDto)
+                .collect(toSet());
     }
 
 
-//    public List<Meal> getAllMeals(String token) {
-//
-//        AppUser user = getUserFromJwt(token);
-//        Set<Favorite> favorites = user.getFavorites();
-//        return favorites.stream().map(fav->fav.getMeal()).collect(Collectors.toList());
-//
-//    }
-
-
-
-
-    public boolean delete(Long id, String token) {
-        AppUser user = getUserFromJwt(token);
-        var favorite = user.getFavorites().stream().filter(fav -> fav.getMeal().getId().equals(id)).collect(Collectors.toList()).get(0);
+    @Transactional
+    public boolean delete(Long id, String principal) {
+        AppUser user = getAppUser(principal);
+        Favorite favorite = user.getFavorites().stream().filter(fav -> fav.getMeal().getId().equals(id)).findFirst()
+                .orElseThrow(()->new FavoriteMealNotFoundException(String.format("favorite with id=%s not found", id)));
         user.removeFavoriteMeal(favorite);
         return true;
     }

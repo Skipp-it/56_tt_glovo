@@ -24,15 +24,25 @@ public class CartController {
 
     @PostMapping("/add-meal")
     public ResponseEntity<Void> addNewCartProduct(@RequestBody @NotNull CartDto cartDto, @RequestHeader("Authorization") String token) {
-        System.out.println( "________________intra");
         cartService.addCartItem(cartDto, token);
-        System.out.println( "________________iese");
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @DeleteMapping("/delete-meal/{id}")
     public ResponseEntity<Void> deleteCartItem( @PathVariable("id") Long id, @RequestHeader("Authorization") String token) {
         cartService.removeCartItem(id, token );
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PutMapping("/increase/{id}")
+    public ResponseEntity<Void> increaseCartItemQuantity(@PathVariable("id") Long id, @RequestHeader("Authorization") String token){
+        System.out.println("increase , id" + id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PutMapping("/decrease/{id}")
+    public ResponseEntity<Void> decreaseCartItemQuantity(@PathVariable("id") Long id, @RequestHeader("Authorization") String token){
+        System.out.println("decrease , id" + id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
