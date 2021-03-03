@@ -29,10 +29,16 @@ public class MealController {
         return ResponseEntity.status(HttpStatus.OK).body(allMealPrices);
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<Integer> mealPrice(@PathVariable Long id) {
         Integer mealPrice = mealService.getById(id);
         return ResponseEntity.status(HttpStatus.OK).body(mealPrice);
     }
 
+    @GetMapping("/category/{category}")
+    public ResponseEntity<Set<MealDto>> getPricesByCategory(@PathVariable String category) {
+        Set<MealDto> mealPricesByCategory = mealService.getPricesByCategory(category);
+        return ResponseEntity.status(HttpStatus.OK).body(mealPricesByCategory);
+
+    }
 }

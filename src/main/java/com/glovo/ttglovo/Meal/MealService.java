@@ -4,6 +4,7 @@ import com.glovo.ttglovo.exceptions.FavoriteMealNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -28,5 +29,12 @@ public class MealService {
 
     public void addPrice(Meal meal) {
         mealRepository.save(meal);
+    }
+
+    public Set<MealDto> getPricesByCategory(String category) {
+//        mealRepository.findAllByCategory(category).forEach(System.out::println);
+        return mealRepository.findAllByCategory(category).stream()
+                .map(mealMapper::mealToDto)
+                .collect(Collectors.toSet());
     }
 }

@@ -40,6 +40,8 @@ public class Meal {
     )
     private Integer price;
 
+    private String category;
+
 
     @OneToMany(
             cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
