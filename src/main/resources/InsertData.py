@@ -6,21 +6,17 @@ conn = psycopg2.connect("dbname=glovodb user=postgres password=root")
 cur = conn.cursor()
 
 
-def get_category(string):
-    return string.split("=")[1]
-
-
-def insert_data():
-    url = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Goat'
+def insert_data(category):
+    url = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=' + category
     result = requests.get(url)
     get_json = result.json()
     elements = get_json['meals']
     for i in elements:
         cur.execute("INSERT INTO public.meal (id, price,category) VALUES (%s,%s,%s)",
-                    (i["idMeal"], random.randint(0, 100), get_category(url)))
+                    (i["idMeal"], random.randint(0, 100), category))
 
 
-insert_data()
+insert_data("Goat")
 
 conn.commit()
 cur.close()
