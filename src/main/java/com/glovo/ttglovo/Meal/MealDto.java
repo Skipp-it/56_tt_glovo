@@ -12,4 +12,5 @@ import lombok.*;
 public class MealDto {
     private Long idMeal;
     private Integer price;
+    private String category;
 }

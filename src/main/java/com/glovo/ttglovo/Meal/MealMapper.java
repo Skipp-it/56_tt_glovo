@@ -15,5 +15,6 @@ public interface MealMapper {
 
     @Mapping(target = "idMeal", source = "id")
     @Mapping(target = "price", source = "price")
+    @Mapping(target = "category", source = "category")
     MealDto mealToDto(Meal meal);
 }
