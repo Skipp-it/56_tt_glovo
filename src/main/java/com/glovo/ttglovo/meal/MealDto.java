@@ -1,4 +1,4 @@
-package com.glovo.ttglovo.Meal;
+package com.glovo.ttglovo.meal;
 
 
 import lombok.*;

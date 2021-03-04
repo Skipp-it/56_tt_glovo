@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins = "http://localhost:3000")
-@RestController
+@RestController("/client")
 @AllArgsConstructor
 public class AppUserInfoController {
 
     private final AppUserService appUserService;
 
-    @GetMapping("/client")
+    @GetMapping()
     public String currentUser() {
         //TODO atentie user e email!!!
 

@@ -1,4 +1,4 @@
-package com.glovo.ttglovo.Meal;
+package com.glovo.ttglovo.meal;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

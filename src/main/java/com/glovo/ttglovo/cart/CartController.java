@@ -3,6 +3,7 @@ package com.glovo.ttglovo.cart;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
@@ -36,6 +37,7 @@ public class CartController {
 
     @PutMapping("/increase/{id}")
     public ResponseEntity<Void> increaseCartItemQuantity(@PathVariable("id") Long id, @RequestHeader("Authorization") String token){
+        System.out.println(SecurityContextHolder.getContext());
         System.out.println("increase , id" + id);
         return new ResponseEntity<>(HttpStatus.OK);
     }

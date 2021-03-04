@@ -1,11 +1,9 @@
-package com.glovo.ttglovo.Meal;
+package com.glovo.ttglovo.meal;
 
 import com.glovo.ttglovo.exceptions.FavoriteMealNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
