@@ -1,5 +1,8 @@
-package com.glovo.ttglovo.recipe;
+package com.glovo.ttglovo.controllers.recipe;
 
+import com.glovo.ttglovo.recipe.RecipeDTO;
+import com.glovo.ttglovo.recipe.RecipeItem;
+import com.glovo.ttglovo.recipe.RecipeService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
