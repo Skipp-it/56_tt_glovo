@@ -45,8 +45,6 @@ public class RecipeItem {
     private AppUser user;
 
 
-
-
     @Override
     public String toString() {
         return "RecipeItem{" +
