@@ -59,8 +59,8 @@ public class Favorite {
         return Objects.equals(id, favorite.id) && Objects.equals(user, favorite.user) && Objects.equals(meal, favorite.meal) && Objects.equals(createdAt, favorite.createdAt);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, user, meal, createdAt);
-    }
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id, user, meal, createdAt);
+//    }
 }

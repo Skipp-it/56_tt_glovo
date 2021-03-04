@@ -1,7 +1,6 @@
 package com.glovo.ttglovo.recipe;
 
 import com.glovo.ttglovo.securityManagement.appuser.AppUser;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,12 +25,14 @@ public class RecipeItem {
     @Column(name = "id", updatable = false, nullable = false)
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "name", columnDefinition = "text", length=10485760)
     private String name;
 
-    @Column(name="description")
+    @Column(name="description", columnDefinition = "text", length=10485760)
     private String description;
 
+    @Column(name="image")
+   private String image;
     @ManyToOne
     @JoinColumn(
             name = "user_id",
@@ -42,6 +43,9 @@ public class RecipeItem {
             )
     )
     private AppUser user;
+
+
+
 
     @Override
     public String toString() {

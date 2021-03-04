@@ -1,8 +1,5 @@
 package com.glovo.ttglovo.recipe;
 
-import com.glovo.ttglovo.exceptions.FavoriteMealNotFoundException;
-import com.glovo.ttglovo.favourite_meal.FavoriteDao;
-import com.glovo.ttglovo.prices.Meal;
 import com.glovo.ttglovo.securityManagement.appuser.AppUser;
 import com.glovo.ttglovo.securityManagement.appuser.AppUserRepository;
 import com.glovo.ttglovo.securityManagement.security.jwt.JwtTokenServices;
@@ -11,6 +8,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -28,19 +27,40 @@ public class RecipeService {
     }
 
    @Transactional
-    public void saveRecipeItem(RecipeItem recipeItem,String token){
+    public void saveRecipeItem(RecipeItem recipeItem, String token) throws IOException {
        AppUser user = getUserFromJwt(token);
 
        RecipeItem recipe= new RecipeItem();
        recipe.setName(recipeItem.getName());
        recipe.setDescription(recipeItem.getDescription());
+       recipe.setImage(recipeItem.getImage());
        recipe.setUser(user);
+
+
+
        recipeRepository.save(recipe);
 
    }
 
-   public List<RecipeItem> getAllRecipes(){
+   public List<RecipeDTO> getAllRecipes(){
+        List<RecipeDTO> recipeDTOList=new ArrayList<>();
        List<RecipeItem> list=recipeRepository.findAll();
-       return  list;
+
+       for (RecipeItem recipeItem : list) {
+       RecipeDTO recipeDTO=new RecipeDTO();
+       recipeDTO.setId(recipeItem.getId());
+       recipeDTO.setDescription(recipeItem.getDescription());
+       recipeDTO.setName(recipeItem.getName());
+       recipeDTO.setUserFirstName(recipeItem.getUser().getFirstName());
+       recipeDTO.setUserId(recipeItem.getUser().getId());
+       recipeDTO.setImage(recipeItem.getImage());
+       recipeDTOList.add(recipeDTO);
+       }
+       return  recipeDTOList;
    }
+
+    public boolean deleteRecipeById(Long id) {
+       recipeRepository.deleteById(id);
+        return true;
+    }
 }

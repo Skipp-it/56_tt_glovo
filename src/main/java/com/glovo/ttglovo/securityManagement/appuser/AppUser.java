@@ -164,6 +164,10 @@ public class AppUser implements UserDetails {
         return favorites;
     }
 
+    public List<RecipeItem> getRecipeItems() {
+        return recipeItems;
+    }
+
     public void addUserFavoriteMeal(Favorite favorite) {
         if (!favorites.contains(favorite)) {
             favorites.add(favorite);
@@ -178,6 +182,8 @@ public class AppUser implements UserDetails {
     public void addRecipeItem(RecipeItem recipeItem){
         recipeItems.add(recipeItem);
     }
+
+    public void removeRecipe(RecipeItem recipeItem){ recipeItems.remove(recipeItem);}
 
     @Override
     public String toString() {

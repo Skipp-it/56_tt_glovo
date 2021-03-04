@@ -28,6 +28,7 @@ public class FavoriteController {
     @GetMapping()
     public ResponseEntity<Set<MealDto>> getFavMeals() {
         String principal = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println(principal);
         Set<MealDto> allMeals = favoriteService.getAllMeals(principal);
         return ResponseEntity.status(HttpStatus.OK).body(allMeals);
     }
