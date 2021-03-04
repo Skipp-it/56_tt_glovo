@@ -32,7 +32,6 @@ public class MealService {
     }
 
     public Set<MealDto> getPricesByCategory(String category) {
-//        mealRepository.findAllByCategory(category).forEach(System.out::println);
         return mealRepository.findAllByCategory(category).stream()
                 .map(mealMapper::mealToDto)
                 .collect(Collectors.toSet());
