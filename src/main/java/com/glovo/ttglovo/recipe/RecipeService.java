@@ -26,39 +26,39 @@ public class RecipeService {
 
     }
 
-   @Transactional
+    @Transactional
     public void saveRecipeItem(RecipeItem recipeItem, String token) throws IOException {
-       AppUser user = getUserFromJwt(token);
+        AppUser user = getUserFromJwt(token);
 
-       RecipeItem recipe= new RecipeItem();
-       recipe.setName(recipeItem.getName());
-       recipe.setDescription(recipeItem.getDescription());
-       recipe.setImage(recipeItem.getImage());
-       recipe.setUser(user);
+        RecipeItem recipe = new RecipeItem();
+        recipe.setName(recipeItem.getName());
+        recipe.setDescription(recipeItem.getDescription());
+        recipe.setImage(recipeItem.getImage());
+        recipe.setUser(user);
 
-       recipeRepository.save(recipe);
+        recipeRepository.save(recipe);
 
-   }
+    }
 
-   public List<RecipeDTO> getAllRecipes(){
-        List<RecipeDTO> recipeDTOList=new ArrayList<>();
-       List<RecipeItem> list=recipeRepository.findAll();
+    public List<RecipeDTO> getAllRecipes() {
+        List<RecipeDTO> recipeDTOList = new ArrayList<>();
+        List<RecipeItem> list = recipeRepository.findAll();
 
-       for (RecipeItem recipeItem : list) {
-       RecipeDTO recipeDTO=new RecipeDTO();
-       recipeDTO.setId(recipeItem.getId());
-       recipeDTO.setDescription(recipeItem.getDescription());
-       recipeDTO.setName(recipeItem.getName());
-       recipeDTO.setUserFirstName(recipeItem.getUser().getFirstName());
-       recipeDTO.setUserId(recipeItem.getUser().getId());
-       recipeDTO.setImage(recipeItem.getImage());
-       recipeDTOList.add(recipeDTO);
-       }
-       return  recipeDTOList;
-   }
+        for (RecipeItem recipeItem : list) {
+            RecipeDTO recipeDTO = new RecipeDTO();
+            recipeDTO.setId(recipeItem.getId());
+            recipeDTO.setDescription(recipeItem.getDescription());
+            recipeDTO.setName(recipeItem.getName());
+            recipeDTO.setUserFirstName(recipeItem.getUser().getFirstName());
+            recipeDTO.setUserId(recipeItem.getUser().getId());
+            recipeDTO.setImage(recipeItem.getImage());
+            recipeDTOList.add(recipeDTO);
+        }
+        return recipeDTOList;
+    }
 
     public boolean deleteRecipeById(Long id) {
-       recipeRepository.deleteById(id);
+        recipeRepository.deleteById(id);
         return true;
     }
 }

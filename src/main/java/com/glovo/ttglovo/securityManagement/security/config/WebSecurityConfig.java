@@ -39,13 +39,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                     .antMatchers("/prices/**","/recipes/**", "/api-docs/**", "/swagger**/**").permitAll()
-                    .antMatchers("/favorite/**").authenticated()
-                    .antMatchers("/cart/**").authenticated()
+                    .antMatchers("/login", "/register/**", "/meals/**").permitAll()
+                    .antMatchers("/favorite/**", "/cart/**", "/client").authenticated()
                     .antMatchers("/admin/**").hasAuthority("ADMIN")
-                    .antMatchers("/login", "/register/**").permitAll()
-                    .antMatchers("/meals/**").permitAll()
-                    .antMatchers("/client").authenticated()
-                    .antMatchers().permitAll()
                 .anyRequest().denyAll()
                 .and()
                 .addFilterBefore(new JwtTokenFilter(jwtTokenServices), UsernamePasswordAuthenticationFilter.class);
@@ -70,6 +66,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
-
 }
 
