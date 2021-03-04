@@ -1,6 +1,8 @@
-package com.glovo.ttglovo.favourite_meal;
+package com.glovo.ttglovo.controllers.favoriteMeal;
 
 
+import com.glovo.ttglovo.favourite_meal.FavoriteDto;
+import com.glovo.ttglovo.favourite_meal.FavoriteService;
 import com.glovo.ttglovo.meal.MealDto;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;

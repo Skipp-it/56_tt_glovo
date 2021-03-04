@@ -1,5 +1,7 @@
-package com.glovo.ttglovo.securityManagement.registration.dto;
+package com.glovo.ttglovo.controllers.registration;
 
+import com.glovo.ttglovo.securityManagement.registration.dto.RegistrationRequest;
+import com.glovo.ttglovo.securityManagement.registration.dto.RegistrationService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

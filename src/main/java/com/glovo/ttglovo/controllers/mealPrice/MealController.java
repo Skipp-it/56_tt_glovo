@@ -1,6 +1,9 @@
-package com.glovo.ttglovo.meal;
+package com.glovo.ttglovo.controllers.mealPrice;
 
 
+import com.glovo.ttglovo.meal.Meal;
+import com.glovo.ttglovo.meal.MealDto;
+import com.glovo.ttglovo.meal.MealService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
