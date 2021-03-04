@@ -1,40 +1,54 @@
-//package com.glovo.ttglovo.cart;
-//
-//
-//import com.glovo.ttglovo.securityManagement.appuser.AppUserService;
-//import lombok.AllArgsConstructor;
-//import org.springframework.web.bind.annotation.*;
-//
-//import javax.validation.constraints.NotNull;
-//import java.util.List;
-//
-//@RestController
-//@RequestMapping("/cart")
-//@CrossOrigin(origins = "http://localhost:3000")
-//@AllArgsConstructor
-//public class CartController {
-//
-//private final AppUserService userService;
-//
-//    @GetMapping("/{user-id}")
-//    public List<CartItem> getAllCartItems(@PathVariable("user-id") Long userId) {
-//        return userService.getAllCartItems(userId);
-//    }
-//
-//    @PostMapping()
-//    public void addNewCartProduct(@RequestBody @NotNull @PathVariable("user_id") Long userId,@PathVariable("meal_id") Long mealId) {
-//        System.out.println("--------------------intra");
-//        userService.saveCartItem(userId, mealId );
-//    }
-//
-//    @DeleteMapping("/{user_id}/{meal_id}")
-//    public void deleteCartItem( @PathVariable("user_id") Long userId, @PathVariable("meal_id") Long mealId) {
-//        userService.removeCartItem(userId, mealId );
-//    }
-//
-//    //
-////    @GetMapping("/{id}")
-////    public Product getProductById(@PathVariable("id") int id){ return favoritesService.getProductById(id);};
-//
-//
-//}
+package com.glovo.ttglovo.cart;
+
+import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.constraints.NotNull;
+import java.util.List;
+
+@RestController
+@AllArgsConstructor
+@RequestMapping("/cart")
+@CrossOrigin(origins = "http://localhost:3000")
+public class CartController {
+
+    private final CartService cartService;
+
+
+    @GetMapping()
+    public  List<CartDto> getAllCartItems(@RequestHeader("Authorization") String token) {
+        return  cartService.getAllCartItems(token);
+    }
+
+    @PostMapping("/add-meal")
+    public ResponseEntity<Void> addNewCartProduct(@RequestBody @NotNull CartDto cartDto, @RequestHeader("Authorization") String token) {
+        cartService.addCartItem(cartDto, token);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("/delete-meal/{id}")
+    public ResponseEntity<Void> deleteCartItem( @PathVariable("id") Long id, @RequestHeader("Authorization") String token) {
+        cartService.removeCartItem(id, token );
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PutMapping("/increase/{id}")
+    public ResponseEntity<Void> increaseCartItemQuantity(@PathVariable("id") Long id, @RequestHeader("Authorization") String token){
+        System.out.println("increase , id" + id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PutMapping("/decrease/{id}")
+    public ResponseEntity<Void> decreaseCartItemQuantity(@PathVariable("id") Long id, @RequestHeader("Authorization") String token){
+        System.out.println("decrease , id" + id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    //
+//    @GetMapping("/{id}")
+//    public Product getProductById(@PathVariable("id") int id){ return favoritesService.getProductById(id);};
+
+
+}

@@ -33,17 +33,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
                 .httpBasic().disable()
-                .cors().and()
+                .cors().and() //
                 .csrf().disable() //for form base security : enable!
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/favorite/**").authenticated()
-                .antMatchers("/admin/**").hasAuthority("ADMIN")
-                .antMatchers("/login", "/register/**").permitAll()
-                .antMatchers("/meals/**").permitAll()
-                .antMatchers("/prices/**").permitAll()
-                .antMatchers("/client").authenticated()
+                    .antMatchers("/prices/**").permitAll()
+                    .antMatchers("/favorite/**").authenticated()
+                    .antMatchers("/cart/**").authenticated()
+                    .antMatchers("/admin/**").hasAuthority("ADMIN")
+                    .antMatchers("/login", "/register/**").permitAll()
+                    .antMatchers("/meals/**").permitAll()
+                    .antMatchers("/client").authenticated()
                 .anyRequest().denyAll()
                 .and()
                 .addFilterBefore(new JwtTokenFilter(jwtTokenServices), UsernamePasswordAuthenticationFilter.class);
