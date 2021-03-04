@@ -1,5 +1,7 @@
-package com.glovo.ttglovo.cart;
+package com.glovo.ttglovo.controllers.cart;
 
+import com.glovo.ttglovo.cart.CartDto;
+import com.glovo.ttglovo.cart.CartService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -48,11 +50,5 @@ public class CartController {
         cartService.decreaseItemQuantity(id, email);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
-
-    //
-//    @GetMapping("/{id}")
-//    public Product getProductById(@PathVariable("id") int id){ return favoritesService.getProductById(id);};
-
 
 }

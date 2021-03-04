@@ -1,7 +1,8 @@
-package com.glovo.ttglovo.securityManagement.security;
+package com.glovo.ttglovo.controllers.login;
 
 import com.glovo.ttglovo.securityManagement.appuser.AppUser;
 import com.glovo.ttglovo.securityManagement.appuser.AppUserService;
+import com.glovo.ttglovo.securityManagement.security.LoginRequest;
 import com.glovo.ttglovo.securityManagement.security.jwt.JwtTokenServices;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
