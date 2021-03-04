@@ -2,6 +2,7 @@ package com.glovo.ttglovo.securityManagement.appuser;
 
 import com.glovo.ttglovo.cart.CartItem;
 import com.glovo.ttglovo.favourite_meal.Favorite;
+import com.glovo.ttglovo.recipe.RecipeItem;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -101,6 +102,14 @@ public class AppUser implements UserDetails {
     )
     private List<CartItem> cartItems = new ArrayList<>();
 
+    @OneToMany(
+            mappedBy = "user",
+            orphanRemoval = true,
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+            fetch = FetchType.LAZY
+    )
+    private List<RecipeItem> recipeItems = new ArrayList<>();
+
     public AppUser(String firstName,
                    String lastName,
                    String email,
@@ -155,6 +164,10 @@ public class AppUser implements UserDetails {
         return favorites;
     }
 
+    public List<RecipeItem> getRecipeItems() {
+        return recipeItems;
+    }
+
     public void addUserFavoriteMeal(Favorite favorite) {
         if (!favorites.contains(favorite)) {
             favorites.add(favorite);
@@ -166,12 +179,22 @@ public class AppUser implements UserDetails {
     }
 
 
+    public void addRecipeItem(RecipeItem recipeItem){
+        recipeItems.add(recipeItem);
+    }
+
+    public void removeRecipe(RecipeItem recipeItem){ recipeItems.remove(recipeItem);}
+
     @Override
     public String toString() {
         return "AppUser{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", appUserRole=" + appUserRole +
+                ", locked=" + locked +
+                ", enabled=" + enabled +
                 '}';
     }
 

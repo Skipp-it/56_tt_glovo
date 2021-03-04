@@ -26,18 +26,31 @@ public class RegistrationService {
 
     public String register(RegistrationRequest request) {
         boolean isValidEmail = emailValidatorService.test(request.getEmail());
+         String token;
 
         if (!isValidEmail) {
             throw new IllegalStateException(String.format("Email %s is not valid", request.getEmail()));
         }
-        String token = appUserService.signUpUser(
-                new AppUser(
-                        request.getFirstName(),
-                        request.getLastName(),
-                        request.getEmail(),
-                        request.getPassword(),
-                        AppUserRole.USER
-                ));
+        if(request.isProvider()){
+            token = appUserService.signUpUser(
+                    new AppUser(
+                            request.getFirstName(),
+                            request.getLastName(),
+                            request.getEmail(),
+                            request.getPassword(),
+                            AppUserRole.PROVIDER
+                    ));
+        }else{
+             token = appUserService.signUpUser(
+                    new AppUser(
+                            request.getFirstName(),
+                            request.getLastName(),
+                            request.getEmail(),
+                            request.getPassword(),
+                            AppUserRole.USER
+                    ));
+        }
+
 
         //email
 
