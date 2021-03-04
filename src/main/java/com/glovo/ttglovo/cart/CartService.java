@@ -1,8 +1,8 @@
 package com.glovo.ttglovo.cart;
 
+import com.glovo.ttglovo.Meal.Meal;
+import com.glovo.ttglovo.Meal.MealRepository;
 import com.glovo.ttglovo.exceptions.CartItemNotFoundException;
-import com.glovo.ttglovo.prices.Meal;
-import com.glovo.ttglovo.prices.MealRepository;
 import com.glovo.ttglovo.securityManagement.appuser.AppUser;
 import com.glovo.ttglovo.securityManagement.appuser.AppUserRepository;
 import com.glovo.ttglovo.securityManagement.security.jwt.JwtTokenServices;

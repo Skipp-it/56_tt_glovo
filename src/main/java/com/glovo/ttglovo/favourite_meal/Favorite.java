@@ -26,7 +26,7 @@ public class Favorite {
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("userId")
-    @JoinColumn(name = "user_id",foreignKey = @ForeignKey(name = "favorite_user_id_fk"))
+    @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "favorite_user_id_fk"))
     private AppUser user;
 
     @JsonIgnore
@@ -43,24 +43,22 @@ public class Favorite {
     private LocalDateTime createdAt;
 
 
-
-    public Favorite(AppUser user, Meal meal,LocalDateTime createdAt ) {
+    public Favorite(AppUser user, Meal meal, LocalDateTime createdAt) {
         this.user = user;
         this.meal = meal;
         this.createdAt = createdAt;
     }
-
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Favorite favorite = (Favorite) o;
-        return Objects.equals(id, favorite.id) && Objects.equals(user, favorite.user) && Objects.equals(meal, favorite.meal) && Objects.equals(createdAt, favorite.createdAt);
+        return Objects.equals(id, favorite.id) && Objects.equals(createdAt, favorite.createdAt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, meal, createdAt);
+        return Objects.hash(id, createdAt);
     }
 }
