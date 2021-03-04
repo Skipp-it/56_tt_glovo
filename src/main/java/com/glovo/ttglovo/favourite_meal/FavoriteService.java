@@ -1,10 +1,10 @@
 package com.glovo.ttglovo.favourite_meal;
 
 
-import com.glovo.ttglovo.Meal.Meal;
-import com.glovo.ttglovo.Meal.MealDto;
-import com.glovo.ttglovo.Meal.MealMapper;
-import com.glovo.ttglovo.Meal.MealRepository;
+import com.glovo.ttglovo.meal.Meal;
+import com.glovo.ttglovo.meal.MealDto;
+import com.glovo.ttglovo.meal.MealMapper;
+import com.glovo.ttglovo.meal.MealRepository;
 import com.glovo.ttglovo.exceptions.FavoriteMealNotFoundException;
 import com.glovo.ttglovo.securityManagement.appuser.AppUser;
 import com.glovo.ttglovo.securityManagement.appuser.AppUserRepository;

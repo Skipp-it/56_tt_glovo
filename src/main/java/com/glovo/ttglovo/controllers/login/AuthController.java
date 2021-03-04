@@ -1,7 +1,8 @@
-package com.glovo.ttglovo.securityManagement.security;
+package com.glovo.ttglovo.controllers.login;
 
 import com.glovo.ttglovo.securityManagement.appuser.AppUser;
 import com.glovo.ttglovo.securityManagement.appuser.AppUserService;
+import com.glovo.ttglovo.securityManagement.security.LoginRequest;
 import com.glovo.ttglovo.securityManagement.security.jwt.JwtTokenServices;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -22,14 +23,14 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
-@RequestMapping()
+@RequestMapping("/login")
 public class AuthController {
 
     private final AuthenticationManager authenticationManager;
     private final AppUserService appUserService;
     private final JwtTokenServices jwtTokenServices;
 
-    @PostMapping("/login")
+    @PostMapping()
     public ResponseEntity<?> signin(@RequestBody LoginRequest data, HttpServletResponse response) {
         try {
             String email = data.getEmail();

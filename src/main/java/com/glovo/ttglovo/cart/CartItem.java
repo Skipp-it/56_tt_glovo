@@ -1,8 +1,8 @@
 package com.glovo.ttglovo.cart;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.glovo.ttglovo.Meal.Meal;
 
+import com.glovo.ttglovo.meal.Meal;
 import com.glovo.ttglovo.securityManagement.appuser.AppUser;
 import lombok.*;
 

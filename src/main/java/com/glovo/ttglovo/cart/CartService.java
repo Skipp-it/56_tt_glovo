@@ -1,9 +1,8 @@
 package com.glovo.ttglovo.cart;
 
-import com.glovo.ttglovo.Meal.Meal;
-import com.glovo.ttglovo.Meal.MealRepository;
+import com.glovo.ttglovo.meal.Meal;
+import com.glovo.ttglovo.meal.MealRepository;
 import com.glovo.ttglovo.exceptions.CartItemNotFoundException;
-
 import com.glovo.ttglovo.securityManagement.appuser.AppUser;
 import com.glovo.ttglovo.securityManagement.appuser.AppUserRepository;
 import com.glovo.ttglovo.securityManagement.security.jwt.JwtTokenServices;
@@ -68,5 +67,25 @@ public class CartService {
 
         CartId cartId = new CartId(user.getId(), meal.getId());
         cartRepository.deleteCartItemById(cartId);
+    }
+
+    public void increaseItemQuantity(Long id, String emailUser){
+        AppUser user = appUserRepository.findByEmail(emailUser).orElseThrow(() ->
+                new UsernameNotFoundException(String.format("User with username %s not found", emailUser)));
+        Meal meal = mealRepository.findById(id).orElseThrow(() ->
+                new CartItemNotFoundException(String.format("cart with id %s not found", id)));
+
+        CartId cartId = new CartId(user.getId(), meal.getId());
+        cartRepository.increaseQuantityByOne(cartId);
+    }
+
+    public void decreaseItemQuantity(Long id, String emailUser){
+        AppUser user = appUserRepository.findByEmail(emailUser).orElseThrow(() ->
+                new UsernameNotFoundException(String.format("User with username %s not found", emailUser)));
+        Meal meal = mealRepository.findById(id).orElseThrow(() ->
+                new CartItemNotFoundException(String.format("cart with id %s not found", id)));
+
+        CartId cartId = new CartId(user.getId(), meal.getId());
+        cartRepository.decreaseQuantityByOne(cartId);
     }
 }

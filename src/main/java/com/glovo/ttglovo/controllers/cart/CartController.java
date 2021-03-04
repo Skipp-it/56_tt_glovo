@@ -1,8 +1,11 @@
-package com.glovo.ttglovo.cart;
+package com.glovo.ttglovo.controllers.cart;
 
+import com.glovo.ttglovo.cart.CartDto;
+import com.glovo.ttglovo.cart.CartService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
@@ -35,20 +38,17 @@ public class CartController {
     }
 
     @PutMapping("/increase/{id}")
-    public ResponseEntity<Void> increaseCartItemQuantity(@PathVariable("id") Long id, @RequestHeader("Authorization") String token){
-        System.out.println("increase , id" + id);
+    public ResponseEntity<Void> increaseCartItemQuantity(@PathVariable("id") Long id){
+        String email = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        cartService.increaseItemQuantity(id, email);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping("/decrease/{id}")
-    public ResponseEntity<Void> decreaseCartItemQuantity(@PathVariable("id") Long id, @RequestHeader("Authorization") String token){
-        System.out.println("decrease , id" + id);
+    public ResponseEntity<Void> decreaseCartItemQuantity(@PathVariable("id") Long id){
+        String email = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        cartService.decreaseItemQuantity(id, email);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
-    //
-//    @GetMapping("/{id}")
-//    public Product getProductById(@PathVariable("id") int id){ return favoritesService.getProductById(id);};
-
 
 }

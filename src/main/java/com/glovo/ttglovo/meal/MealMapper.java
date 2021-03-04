@@ -1,4 +1,4 @@
-package com.glovo.ttglovo.Meal;
+package com.glovo.ttglovo.meal;
 
 import com.glovo.ttglovo.favourite_meal.Favorite;
 import org.mapstruct.Mapper;
@@ -15,5 +15,6 @@ public interface MealMapper {
 
     @Mapping(target = "idMeal", source = "id")
     @Mapping(target = "price", source = "price")
+    @Mapping(target = "category", source = "category")
     MealDto mealToDto(Meal meal);
 }

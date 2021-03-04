@@ -1,4 +1,4 @@
-package com.glovo.ttglovo.Meal;
+package com.glovo.ttglovo.meal;
 
 
 import com.glovo.ttglovo.favourite_meal.Favorite;
@@ -39,6 +39,8 @@ public class Meal {
             updatable = false
     )
     private Integer price;
+
+    private String category;
 
 
     @OneToMany(

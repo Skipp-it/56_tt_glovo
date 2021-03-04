@@ -1,4 +1,4 @@
-package com.glovo.ttglovo.Meal;
+package com.glovo.ttglovo.meal;
 
 
 import lombok.*;
@@ -12,4 +12,5 @@ import lombok.*;
 public class MealDto {
     private Long idMeal;
     private Integer price;
+    private String category;
 }
