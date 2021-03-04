@@ -68,4 +68,24 @@ public class CartService {
         CartId cartId = new CartId(user.getId(), meal.getId());
         cartRepository.deleteCartItemById(cartId);
     }
+
+    public void increaseItemQuantity(Long id, String emailUser){
+        AppUser user = appUserRepository.findByEmail(emailUser).orElseThrow(() ->
+                new UsernameNotFoundException(String.format("User with username %s not found", emailUser)));
+        Meal meal = mealRepository.findById(id).orElseThrow(() ->
+                new CartItemNotFoundException(String.format("cart with id %s not found", id)));
+
+        CartId cartId = new CartId(user.getId(), meal.getId());
+        cartRepository.increaseQuantityByOne(cartId);
+    }
+
+    public void decreaseItemQuantity(Long id, String emailUser){
+        AppUser user = appUserRepository.findByEmail(emailUser).orElseThrow(() ->
+                new UsernameNotFoundException(String.format("User with username %s not found", emailUser)));
+        Meal meal = mealRepository.findById(id).orElseThrow(() ->
+                new CartItemNotFoundException(String.format("cart with id %s not found", id)));
+
+        CartId cartId = new CartId(user.getId(), meal.getId());
+        cartRepository.decreaseQuantityByOne(cartId);
+    }
 }

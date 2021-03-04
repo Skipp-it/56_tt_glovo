@@ -36,17 +36,19 @@ public class CartController {
     }
 
     @PutMapping("/increase/{id}")
-    public ResponseEntity<Void> increaseCartItemQuantity(@PathVariable("id") Long id, @RequestHeader("Authorization") String token){
-        System.out.println(SecurityContextHolder.getContext());
-        System.out.println("increase , id" + id);
+    public ResponseEntity<Void> increaseCartItemQuantity(@PathVariable("id") Long id){
+        String email = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        cartService.increaseItemQuantity(id, email);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping("/decrease/{id}")
-    public ResponseEntity<Void> decreaseCartItemQuantity(@PathVariable("id") Long id, @RequestHeader("Authorization") String token){
-        System.out.println("decrease , id" + id);
+    public ResponseEntity<Void> decreaseCartItemQuantity(@PathVariable("id") Long id){
+        String email = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        cartService.decreaseItemQuantity(id, email);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
 
     //
 //    @GetMapping("/{id}")
