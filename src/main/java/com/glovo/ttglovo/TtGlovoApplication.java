@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication()
-@OpenAPIDefinition(info = @Info(title = "Team Team Delivery API", version = "3.0", description = "Do try our most delicious API"))
+@OpenAPIDefinition(info = @Info(title = "Team Team Delivery API", version = "3.0", description = "Do try the most delicious API"))
 public class TtGlovoApplication {
 
 
