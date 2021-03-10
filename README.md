@@ -16,6 +16,11 @@ Add to cart option is the last step before the payment and on this page, the use
 
 ![Categories](/img/categories.png 'Categories')
 
+Documentation of the API using Swagger v3 (OpenApi)
+
+![Swagger](/img/swagger.png 'Swagger')
+
+
 Don't stay hungry and visit us!
 
 ## For the [front-end](https://github.com/Skipp-it/Glovo-FrontEnd) of the app.
