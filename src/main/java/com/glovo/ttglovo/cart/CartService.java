@@ -96,6 +96,5 @@ public class CartService {
             System.out.println(e.getMessage());
         }
         cartRepository.saveAll(newCartItems);
-//TODO de decomentat dupa ce termin functia de stergere din DB a tuturor elementelor anterioare , ale userului din cart
     }
 }

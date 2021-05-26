@@ -52,13 +52,6 @@ public class AuthController {
             model.put("name", name);
             model.put("roles", roles);
             model.put("token", token);
-            System.out.println("Token "+token);
-//            //add token to cookie
-//            Cookie cookie = new Cookie("token", token);
-//            cookie.setMaxAge(100);
-//            cookie.setHttpOnly(true);
-//            response.addCookie(cookie);
-//            System.out.println("cookie   " + cookie);
 
             return ResponseEntity.ok(model);
         } catch (AuthenticationException e) {

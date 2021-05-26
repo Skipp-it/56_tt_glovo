@@ -30,7 +30,6 @@ public class FavoriteController {
     @GetMapping()
     public ResponseEntity<Set<MealDto>> getFavMeals() {
         String principal = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        System.out.println(principal);
         Set<MealDto> allMeals = favoriteService.getAllMeals(principal);
         return ResponseEntity.status(HttpStatus.OK).body(allMeals);
     }
@@ -38,7 +37,6 @@ public class FavoriteController {
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Long> deletePost(@PathVariable Long id) {
         String principal = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
         boolean isRemoved = favoriteService.delete(id, principal);
 
         if (!isRemoved) {
