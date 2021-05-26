@@ -21,8 +21,8 @@ public class CartController {
 
 
     @GetMapping()
-    public  List<CartDto> getAllCartItems(@RequestHeader("Authorization") String token) {
-        return  cartService.getAllCartItems(token);
+    public List<CartDto> getAllCartItems(@RequestHeader("Authorization") String token) {
+        return cartService.getAllCartItems(token);
     }
 
     @PostMapping("/add-meal")
@@ -32,23 +32,16 @@ public class CartController {
     }
 
     @DeleteMapping("/delete-meal/{id}")
-    public ResponseEntity<Void> deleteCartItem( @PathVariable("id") Long id, @RequestHeader("Authorization") String token) {
-        cartService.removeCartItem(id, token );
+    public ResponseEntity<Void> deleteCartItem(@PathVariable("id") Long id, @RequestHeader("Authorization") String token) {
+        cartService.removeCartItem(id, token);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+    @PostMapping("/update-cart")
+    public ResponseEntity<Void> updateCartBeforePayment(@RequestBody @NotNull List<CartDto> cartItemDto, @RequestHeader("Authorization") String token) {
+        cartService.updateCart(cartItemDto, token);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PutMapping("/increase/{id}")
-    public ResponseEntity<Void> increaseCartItemQuantity(@PathVariable("id") Long id){
-        String email = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        cartService.increaseItemQuantity(id, email);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
 
-    @PutMapping("/decrease/{id}")
-    public ResponseEntity<Void> decreaseCartItemQuantity(@PathVariable("id") Long id){
-        String email = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        cartService.decreaseItemQuantity(id, email);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
 
 }

@@ -53,7 +53,7 @@ public class CartService {
         return transformToDto(cartRepository.findAllCartItemsByUserId(userId));
     }
 
-    private List<CartDto> transformToDto(List<CartItem> cartItems){
+    private List<CartDto> transformToDto(List<CartItem> cartItems) {
         return cartItems.
                 stream()
                 .map(item -> new CartDto(item.getId().getMealId(), item.getQuantity(), item.getClientSeenPrice()))
@@ -69,23 +69,33 @@ public class CartService {
         cartRepository.deleteCartItemById(cartId);
     }
 
-    public void increaseItemQuantity(Long id, String emailUser){
-        AppUser user = appUserRepository.findByEmail(emailUser).orElseThrow(() ->
-                new UsernameNotFoundException(String.format("User with username %s not found", emailUser)));
-        Meal meal = mealRepository.findById(id).orElseThrow(() ->
-                new CartItemNotFoundException(String.format("cart with id %s not found", id)));
+    @Transactional
+    public void updateCart(List<CartDto> cartItems, String token) {
+        AppUser user = getUserFromJwt(token);
 
-        CartId cartId = new CartId(user.getId(), meal.getId());
-        cartRepository.increaseQuantityByOne(cartId);
-    }
 
-    public void decreaseItemQuantity(Long id, String emailUser){
-        AppUser user = appUserRepository.findByEmail(emailUser).orElseThrow(() ->
-                new UsernameNotFoundException(String.format("User with username %s not found", emailUser)));
-        Meal meal = mealRepository.findById(id).orElseThrow(() ->
-                new CartItemNotFoundException(String.format("cart with id %s not found", id)));
+        List<CartItem> newCartItems = cartItems.stream().map(item -> {
+            Meal meal = mealRepository.findById(item.getMealId()).orElseThrow(() ->
+            new CartItemNotFoundException(String.format("cart with id %s not found", item.getMealId())));
 
-        CartId cartId = new CartId(user.getId(), meal.getId());
-        cartRepository.decreaseQuantityByOne(cartId);
+            CartId cartId = new CartId();
+            cartId.setMealId(meal.getId());
+            cartId.setUserId(user.getId());
+
+            return new CartItem(
+                    cartId,/**/
+                    user,
+                    meal,
+                    item.getQuantity(),
+                    item.getPrice());
+        }).collect(Collectors.toList());
+
+        try {
+            cartRepository.deleteCartItemsByUserId(user.getId());
+        } catch (CartItemNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        cartRepository.saveAll(newCartItems);
+//TODO de decomentat dupa ce termin functia de stergere din DB a tuturor elementelor anterioare , ale userului din cart
     }
 }
