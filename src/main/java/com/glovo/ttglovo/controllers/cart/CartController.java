@@ -36,13 +36,10 @@ public class CartController {
         cartService.removeCartItem(id, token);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
     @PostMapping("/update-cart")
     public ResponseEntity<Void> updateCartBeforePayment(@RequestBody @NotNull List<CartDto> cartItemDto, @RequestHeader("Authorization") String token) {
-        System.out.println("----a intrat in update cart controller");
         cartService.updateCart(cartItemDto, token);
         return new ResponseEntity<>(HttpStatus.CREATED);
-
     }
 
 

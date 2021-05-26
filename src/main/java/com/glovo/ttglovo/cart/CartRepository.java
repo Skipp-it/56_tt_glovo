@@ -18,21 +18,8 @@ public interface CartRepository extends JpaRepository<CartItem, Long> {
     @Transactional
     void deleteCartItemById(CartId cartId);
 
-
-//    @Transactional
-//    @Modifying
-//    @Query("UPDATE CartItem c " +
-//            "SET c.quantity = c.quantity + 1 WHERE c.id = ?1 AND c.user = ?2")
-//    void increaseQuantityByOne(CartId cartId, Long userId);
-//
-//    @Transactional
-//    @Modifying
-//    @Query("UPDATE CartItem c " +
-//            "SET c.quantity = c.quantity - 1 WHERE c.id = ?1 AND c.user = ?2")
-//    void decreaseQuantityByOne(CartId cartId, Long userId);
-//
-//    @Transactional
-//    @Modifying
-//    @Query(value = "DELETE FROM cart_items WHERE user_id = ?1 AND qty = 0", nativeQuery = true)
-//    void deleteCartItemsByUserId(Long userId);
+    @Transactional
+    @Modifying
+    @Query(value = "DELETE FROM cart_items WHERE user_id = ?1", nativeQuery = true)
+    void deleteCartItemsByUserId(Long userId);
 }

@@ -70,15 +70,32 @@ public class CartService {
     }
 
     @Transactional
-    public void updateCart(List<CartDto> cartDtos, String token) {
-//        AppUser user = getUserFromJwt(token);
+    public void updateCart(List<CartDto> cartItems, String token) {
+        AppUser user = getUserFromJwt(token);
 
 
-        System.out.println("--------inta");
-        System.out.println(cartDtos.toString());
-        cartRepository.saveAll();
+        List<CartItem> newCartItems = cartItems.stream().map(item -> {
+            Meal meal = mealRepository.findById(item.getMealId()).orElseThrow(() ->
+            new CartItemNotFoundException(String.format("cart with id %s not found", item.getMealId())));
 
+            CartId cartId = new CartId();
+            cartId.setMealId(meal.getId());
+            cartId.setUserId(user.getId());
+
+            return new CartItem(
+                    cartId,/**/
+                    user,
+                    meal,
+                    item.getQuantity(),
+                    item.getPrice());
+        }).collect(Collectors.toList());
+
+        try {
+            cartRepository.deleteCartItemsByUserId(user.getId());
+        } catch (CartItemNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        cartRepository.saveAll(newCartItems);
+//TODO de decomentat dupa ce termin functia de stergere din DB a tuturor elementelor anterioare , ale userului din cart
     }
-
-
 }

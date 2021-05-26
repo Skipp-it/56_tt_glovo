@@ -41,7 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                     .antMatchers("/prices/**/**","/recipes/**", "/api-docs/**", "/swagger**/**").permitAll()
                     .antMatchers("/login", "/register/**", "/meals/**").permitAll()
-                    .antMatchers("/favorite/**", "/cart/**", "/client", "/update-cart").authenticated()
+                    .antMatchers("/favorite/**", "/cart/**", "/client").authenticated()
                     .antMatchers("/admin/**").hasAuthority("ADMIN")
                 .anyRequest().denyAll()
                 .and()
