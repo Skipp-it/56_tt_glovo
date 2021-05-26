@@ -53,7 +53,7 @@ public class CartService {
         return transformToDto(cartRepository.findAllCartItemsByUserId(userId));
     }
 
-    private List<CartDto> transformToDto(List<CartItem> cartItems){
+    private List<CartDto> transformToDto(List<CartItem> cartItems) {
         return cartItems.
                 stream()
                 .map(item -> new CartDto(item.getId().getMealId(), item.getQuantity(), item.getClientSeenPrice()))
@@ -69,23 +69,16 @@ public class CartService {
         cartRepository.deleteCartItemById(cartId);
     }
 
-    public void increaseItemQuantity(Long id, String emailUser){
-        AppUser user = appUserRepository.findByEmail(emailUser).orElseThrow(() ->
-                new UsernameNotFoundException(String.format("User with username %s not found", emailUser)));
-        Meal meal = mealRepository.findById(id).orElseThrow(() ->
-                new CartItemNotFoundException(String.format("cart with id %s not found", id)));
+    @Transactional
+    public void updateCart(List<CartDto> cartDtos, String token) {
+//        AppUser user = getUserFromJwt(token);
 
-        CartId cartId = new CartId(user.getId(), meal.getId());
-        cartRepository.increaseQuantityByOne(cartId);
+
+        System.out.println("--------inta");
+        System.out.println(cartDtos.toString());
+        cartRepository.saveAll();
+
     }
 
-    public void decreaseItemQuantity(Long id, String emailUser){
-        AppUser user = appUserRepository.findByEmail(emailUser).orElseThrow(() ->
-                new UsernameNotFoundException(String.format("User with username %s not found", emailUser)));
-        Meal meal = mealRepository.findById(id).orElseThrow(() ->
-                new CartItemNotFoundException(String.format("cart with id %s not found", id)));
 
-        CartId cartId = new CartId(user.getId(), meal.getId());
-        cartRepository.decreaseQuantityByOne(cartId);
-    }
 }

@@ -7,41 +7,32 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface CartRepository extends JpaRepository<CartItem, Long> {
 
-    @Query(value="SELECT * FROM cart_items WHERE user_id = ?1", nativeQuery = true)
+    @Query(value = "SELECT * FROM cart_items WHERE user_id = ?1", nativeQuery = true)
     List<CartItem> findAllCartItemsByUserId(Long userId);
 
     @Modifying
     @Transactional
-    Optional<CartItem> deleteCartItemById(CartId cartId);
+    void deleteCartItemById(CartId cartId);
 
 
-    @Transactional
-    @Modifying
-    @Query("UPDATE CartItem c " +
-            "SET c.quantity = c.quantity + 1 WHERE c.id = ?1")
-    void increaseQuantityByOne(CartId cartId);
-
-    @Transactional
-    @Modifying
-    @Query("UPDATE CartItem c " +
-            "SET c.quantity = c.quantity - 1 WHERE c.id = ?1")
-    void decreaseQuantityByOne(CartId cartId);
-
-
-//    @Modifying
 //    @Transactional
-//    Optional<CartItem> findCartItemsBy
-
-//    Optional<CartItem> findCartItemsByUser(Long userId);
-}
-
+//    @Modifying
+//    @Query("UPDATE CartItem c " +
+//            "SET c.quantity = c.quantity + 1 WHERE c.id = ?1 AND c.user = ?2")
+//    void increaseQuantityByOne(CartId cartId, Long userId);
 //
-//    @Modifying
 //    @Transactional
-//    void removeTodoById(Long id);
-
+//    @Modifying
+//    @Query("UPDATE CartItem c " +
+//            "SET c.quantity = c.quantity - 1 WHERE c.id = ?1 AND c.user = ?2")
+//    void decreaseQuantityByOne(CartId cartId, Long userId);
+//
+//    @Transactional
+//    @Modifying
+//    @Query(value = "DELETE FROM cart_items WHERE user_id = ?1 AND qty = 0", nativeQuery = true)
+//    void deleteCartItemsByUserId(Long userId);
+}
