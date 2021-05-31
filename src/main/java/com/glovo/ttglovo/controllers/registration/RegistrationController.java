@@ -20,7 +20,7 @@ public class RegistrationController {
 
     @PostMapping()
     public ResponseEntity<String> register(@RequestBody RegistrationRequest request) {
-        String register = registrationService.register(request);
+        registrationService.register(request);
         return new ResponseEntity<>("User Registration Successful", OK);
     }
 

@@ -86,7 +86,7 @@ public class RegistrationService {
         confirmationTokenService.setConfirmedAt(token);
         appUserService.enableAppUser(
                 confirmationToken.getAppUser().getEmail());
-        return "confirmed";
+        return "Registration complete! Please proceed to login page";
     }
 
     private String buildEmail(String name, String link) {
