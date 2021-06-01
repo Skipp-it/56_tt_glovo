@@ -1,5 +1,6 @@
 package com.glovo.ttglovo.controllers.login;
 
+import com.glovo.ttglovo.exceptions.ExceptionHandling;
 import com.glovo.ttglovo.securityManagement.appuser.AppUser;
 import com.glovo.ttglovo.securityManagement.appuser.AppUserService;
 import com.glovo.ttglovo.securityManagement.security.LoginRequest;
@@ -8,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.LockedException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -24,7 +26,7 @@ import java.util.stream.Collectors;
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/login")
-public class AuthController {
+public class AuthController extends ExceptionHandling {
 
     private final AuthenticationManager authenticationManager;
     private final AppUserService appUserService;
@@ -32,6 +34,12 @@ public class AuthController {
 
     @PostMapping()
     public ResponseEntity<?> signin(@RequestBody LoginRequest data) {
+
+        boolean isNonLocked = ((AppUser) appUserService.loadUserByUsername(data.getEmail())).getLocked();
+        if (!isNonLocked){
+            throw new LockedException("");
+        }
+        System.out.println(isNonLocked);
         try {
             String email = data.getEmail();
 
@@ -45,7 +53,7 @@ public class AuthController {
 
             String name = ((AppUser) appUserService.loadUserByUsername(email)).getFirstName();
             Long id = ((AppUser) appUserService.loadUserByUsername(email)).getId();
-            boolean isNonLocked = ((AppUser) appUserService.loadUserByUsername(email)).getLocked();
+
 
             String token = jwtTokenServices.createToken(email, roles);
             Map<Object, Object> model = new HashMap<>();
@@ -53,7 +61,6 @@ public class AuthController {
             model.put("name", name);
             model.put("roles", roles);
             model.put("token", token);
-            model.put("isNonLocked", isNonLocked);
 
             return ResponseEntity.ok(model);
         } catch (AuthenticationException e) {

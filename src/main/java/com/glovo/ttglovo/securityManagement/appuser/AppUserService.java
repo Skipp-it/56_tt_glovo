@@ -1,8 +1,11 @@
 package com.glovo.ttglovo.securityManagement.appuser;
 
+import com.glovo.ttglovo.bruteForce.LoginAttemptService;
 import com.glovo.ttglovo.securityManagement.registration.token.ConfirmationToken;
 import com.glovo.ttglovo.securityManagement.registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -16,19 +19,42 @@ import java.util.UUID;
 @Service
 @AllArgsConstructor
 public class AppUserService implements UserDetailsService {
-
+    private final Logger LOGGER = LoggerFactory.getLogger(getClass());
     private final static String USER_NOT_FOUND_MSG = "user with email %s not found";
     private final AppUserRepository appUserRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final ConfirmationTokenService confirmationTokenService;
+    private final LoginAttemptService loginAttemptService;
 
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return appUserRepository.findByEmail(email)
-                .orElseThrow(() ->
-                        new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG, email)));
+        AppUser user = appUserRepository.findByEmail(email).orElseThrow(() ->
+                new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG, email)));;
+        if (user == null) {
+            LOGGER.error("No user found by username :" + email);
+            throw new UsernameNotFoundException("No user found by username :" + email);
+        } else {
+            validateLoginAttempt(user);
+            appUserRepository.save(user);
+            LOGGER.info("Returning found user by username :" + email);
+            return user;
+        }
+
     }
+
+    private void validateLoginAttempt(AppUser user) {
+        if (user.isAccountNonLocked()) {
+            if (loginAttemptService.hasExceededMaxAttempts(user.getUsername())) {
+                user.setLocked(false);
+            } else {
+                user.setLocked(true);
+            }
+        } else {
+            loginAttemptService.evictUserFromLoginAttemptCache(user.getUsername());
+        }
+    }
+
 
 
     @Transactional
@@ -57,6 +83,7 @@ public class AppUserService implements UserDetailsService {
 
         String encodedPassword = bCryptPasswordEncoder.encode(appUser.getPassword());
         appUser.setPassword(encodedPassword);
+//        appUser.setLocked(false);
 
         /**
          * 3. step

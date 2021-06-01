@@ -91,7 +91,6 @@ public class AppUser implements UserDetails {
     private AppUserRole appUserRole;
 
     private Boolean locked = false;
-
     private Boolean enabled = false;
 
     @OneToMany(
@@ -146,7 +145,7 @@ public class AppUser implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return locked ;
     }
 
     @Override
