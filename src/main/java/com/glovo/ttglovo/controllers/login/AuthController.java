@@ -31,7 +31,7 @@ public class AuthController {
     private final JwtTokenServices jwtTokenServices;
 
     @PostMapping()
-    public ResponseEntity<?> signin(@RequestBody LoginRequest data, HttpServletResponse response) {
+    public ResponseEntity<?> signin(@RequestBody LoginRequest data) {
         try {
             String email = data.getEmail();
 
@@ -44,14 +44,16 @@ public class AuthController {
                     .collect(Collectors.toList());
 
             String name = ((AppUser) appUserService.loadUserByUsername(email)).getFirstName();
-            Long id=((AppUser) appUserService.loadUserByUsername(email)).getId();
+            Long id = ((AppUser) appUserService.loadUserByUsername(email)).getId();
+            boolean isNonLocked = ((AppUser) appUserService.loadUserByUsername(email)).getLocked();
 
             String token = jwtTokenServices.createToken(email, roles);
             Map<Object, Object> model = new HashMap<>();
-            model.put("id",id);
+            model.put("id", id);
             model.put("name", name);
             model.put("roles", roles);
             model.put("token", token);
+            model.put("isNonLocked", isNonLocked);
 
             return ResponseEntity.ok(model);
         } catch (AuthenticationException e) {
