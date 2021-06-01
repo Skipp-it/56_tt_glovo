@@ -90,7 +90,7 @@ public class AppUser implements UserDetails {
     @Enumerated(EnumType.STRING)
     private AppUserRole appUserRole;
 
-    private Boolean locked = false;
+    private Boolean isNonLocked = true;
     private Boolean enabled = false;
 
     @OneToMany(
@@ -145,7 +145,7 @@ public class AppUser implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return locked ;
+        return isNonLocked;
     }
 
     @Override
@@ -192,7 +192,7 @@ public class AppUser implements UserDetails {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", appUserRole=" + appUserRole +
-                ", locked=" + locked +
+                ", locked=" + isNonLocked +
                 ", enabled=" + enabled +
                 '}';
     }
@@ -202,11 +202,11 @@ public class AppUser implements UserDetails {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AppUser user = (AppUser) o;
-        return Objects.equals(id, user.id) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(email, user.email) && Objects.equals(password, user.password) && Objects.equals(favorites, user.favorites) && appUserRole == user.appUserRole && Objects.equals(locked, user.locked) && Objects.equals(enabled, user.enabled) && Objects.equals(cartItems, user.cartItems);
+        return Objects.equals(id, user.id) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(email, user.email) && Objects.equals(password, user.password) && Objects.equals(favorites, user.favorites) && appUserRole == user.appUserRole && Objects.equals(isNonLocked, user.isNonLocked) && Objects.equals(enabled, user.enabled) && Objects.equals(cartItems, user.cartItems);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, email, password, favorites, appUserRole, locked, enabled, cartItems);
+        return Objects.hash(id, firstName, lastName, email, password, favorites, appUserRole, isNonLocked, enabled, cartItems);
     }
 }

@@ -46,9 +46,9 @@ public class AppUserService implements UserDetailsService {
     private void validateLoginAttempt(AppUser user) {
         if (user.isAccountNonLocked()) {
             if (loginAttemptService.hasExceededMaxAttempts(user.getUsername())) {
-                user.setLocked(false);
+                user.setIsNonLocked(false);
             } else {
-                user.setLocked(true);
+                user.setIsNonLocked(true);
             }
         } else {
             loginAttemptService.evictUserFromLoginAttemptCache(user.getUsername());

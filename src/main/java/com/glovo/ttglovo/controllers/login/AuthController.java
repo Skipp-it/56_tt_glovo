@@ -16,7 +16,6 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,7 +34,7 @@ public class AuthController extends ExceptionHandling {
     @PostMapping()
     public ResponseEntity<?> signin(@RequestBody LoginRequest data) {
 
-        boolean isNonLocked = ((AppUser) appUserService.loadUserByUsername(data.getEmail())).getLocked();
+        boolean isNonLocked = ((AppUser) appUserService.loadUserByUsername(data.getEmail())).getIsNonLocked();
         if (!isNonLocked){
             throw new LockedException("");
         }
