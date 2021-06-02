@@ -13,7 +13,7 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/prices")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*", maxAge = 3600)
 @AllArgsConstructor
 public class MealController {
 

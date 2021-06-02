@@ -15,7 +15,8 @@ import java.util.Set;
 @RestController
 @RequestMapping("/favorite")
 @AllArgsConstructor
-@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class FavoriteController {
 
     private final FavoriteService favoriteService;
