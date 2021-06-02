@@ -14,7 +14,8 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/cart")
-@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class CartController {
 
     private final CartService cartService;
