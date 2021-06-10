@@ -13,10 +13,10 @@ def insert_data(category):
     elements = get_json['meals']
     for i in elements:
         cur.execute("INSERT INTO public.meal (id, price,category) VALUES (%s,%s,%s)",
-                    (i["idMeal"], random.randint(0, 100), category))
+                    (i["idMeal"], random.randint(1, 100), category))
 
 
-insert_data("Goat")
+insert_data("Breakfast")
 
 conn.commit()
 cur.close()
