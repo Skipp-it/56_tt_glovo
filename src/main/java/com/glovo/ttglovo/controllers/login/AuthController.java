@@ -54,6 +54,7 @@ public class AuthController extends ExceptionHandling {
             Long id = ((AppUser) appUserService.loadUserByUsername(email)).getId();
 
 
+
             String token = jwtTokenServices.createToken(email, roles);
             Map<Object, Object> model = new HashMap<>();
             model.put("id", id);
